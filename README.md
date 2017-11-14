@@ -10,6 +10,33 @@ OpenPoseのコード利用は有料ですが、tf-openposeはApache2ライセン
   
 また、ボーンの取得には、OpenPoseのCaffe-modelを利用しますがモデルは「[BAIR model license](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/3rdparty/caffe/docs/model_zoo.md)」になるそうで基本的には無料でモデルは利用可能と考えています。  
 
+## 課題
+
+リアルタイムにボーンを取得するには更なる高速化が必要です。
+現在のベンチ(2017/11/14)
+
+```
+iPad 2017 Benchmark
+Double 1 x 1 x 57 x 46 x 46 array
+
+========
+Time elapsed for copy: 0.133957028388977 seconds
+Time elapsed for init: 1.002081990242 seconds
+Time elapsed for estimate_pose_pair: 0.0317380428314209 seconds
+Time elapsed for roop: 0.055433988571167 seconds
+
+-SubTotal:
+Time elapsed for code: 1.15459597110748 seconds
+Time elapsed for coreml: 2.33745795488358 seconds
+
+Total:
+Elapsed time is 3.6908860206604 seconds.
+```
+
+コードについては、初期処理の10行程度のコードで1秒かかっています。  
+coremlについては57x46x46次元のデータを扱っていますので、減らすことで大きく改善が見込めます。  
+
+
 ## モデルのダウンロード
 
 Caffe-modelをmlmodelにコンバートする必要があります。
