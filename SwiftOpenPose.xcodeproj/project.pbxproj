@@ -23,6 +23,8 @@
 		CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; };
 		CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; };
 		CAF52F771FBAAB4F006395B1 /* hoge.bin in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F761FBAAB4A006395B1 /* hoge.bin */; };
+		CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF52F791FBAAFF1006395B1 /* opencv2.framework */; };
+		CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CA9A64E31FBAB32900F21802 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAB3E55A1FBAA50700ECCD30 /* Copy Freamworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +172,7 @@
 		CAB3E5661FBAA68F00ECCD30 /* person1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person1.jpg; sourceTree = "<group>"; };
 		CAF52F761FBAAB4A006395B1 /* hoge.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hoge.bin; sourceTree = "<group>"; };
 		CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_368.mlmodel; sourceTree = "<group>"; };
+		CAF52F791FBAAFF1006395B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +183,7 @@
 				CAF52F701FBAA83F006395B1 /* Upsurge.framework in Frameworks */,
 				CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */,
 				CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */,
+				CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +266,7 @@
 		CAF52F6A1FBAA83F006395B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAF52F791FBAAFF1006395B1 /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 				CAB3E5101FBAA44A00ECCD30 /* Frameworks */,
 				CAB3E5111FBAA44A00ECCD30 /* Resources */,
 				CAB3E55A1FBAA50700ECCD30 /* Copy Freamworks */,
+				CA9A64E31FBAB32900F21802 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -435,6 +450,7 @@
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
 				CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */,
 				CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */,
+				CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
