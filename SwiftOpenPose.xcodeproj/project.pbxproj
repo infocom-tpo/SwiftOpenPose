@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */; };
 		CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */; };
 		CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */; };
 		CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */; };
@@ -154,6 +155,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_224.mlmodel; sourceTree = "<group>"; };
 		CAB3E5131FBAA44A00ECCD30 /* SwiftOpenPose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOpenPose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA167CB41FBEC95F002123F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */,
+				CAB3E5661FBAA68F00ECCD30 /* person1.jpg */,
+				CAF52F761FBAAB4A006395B1 /* hoge.bin */,
+				CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */,
+				CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA167CB61FBECAB1002123F8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CAB3E55E1FBAA5A500ECCD30 /* Common.swift */,
+				CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */,
+				CAB3E5601FBAA5AD00ECCD30 /* OpenCVWrapper.h */,
+				CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */,
+				CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		CAB3E50A1FBAA44A00ECCD30 = {
 			isa = PBXGroup;
 			children = (
@@ -213,15 +239,8 @@
 		CAB3E5151FBAA44A00ECCD30 /* SwiftOpenPose */ = {
 			isa = PBXGroup;
 			children = (
-				CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */,
-				CAF52F761FBAAB4A006395B1 /* hoge.bin */,
-				CAB3E5661FBAA68F00ECCD30 /* person1.jpg */,
-				CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */,
-				CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */,
-				CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */,
-				CAB3E5601FBAA5AD00ECCD30 /* OpenCVWrapper.h */,
-				CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */,
-				CAB3E55E1FBAA5A500ECCD30 /* Common.swift */,
+				CA167CB41FBEC95F002123F8 /* Resources */,
+				CA167CB61FBECAB1002123F8 /* Sources */,
 				CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */,
 				CAB3E51D1FBAA44A00ECCD30 /* Assets.xcassets */,
 				CAB3E51F1FBAA44A00ECCD30 /* LaunchScreen.storyboard */,
@@ -448,6 +467,7 @@
 			files = (
 				CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */,
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
+				CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */,
 				CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */,
 				CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */,
 				CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */,

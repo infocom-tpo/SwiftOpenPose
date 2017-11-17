@@ -14,7 +14,9 @@ import Upsurge
 class ViewController: UIViewController {
     
     let model = coco_pose_368()
-    let com = Common()
+    let ImageWidth = 368
+    let ImageHeight = 368
+    
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -27,7 +29,6 @@ class ViewController: UIViewController {
 //        if let image = UIImage(named: "hadou.jpg"){
 //            print(measure(runCoreML(image)).duration)
 //        }
-        // saveTest()
     }
     
     func measure <T> (_ f: @autoclosure () -> T) -> (result: T, duration: String) {
@@ -51,21 +52,20 @@ class ViewController: UIViewController {
             for i in 0..<array.count {
                 m.append(Double(array[i]))
             }
-            let mm = ValueArray(m)
             
-            drewLine(mm)
+            drewLine(m)
         }
     }
     
     func runCoreML(_ image: UIImage) {
         
-        if let pixelBuffer = image.pixelBuffer(width: com.ImageWidth, height: com.ImageHeight) {
+        if let pixelBuffer = image.pixelBuffer(width: ImageWidth, height: ImageHeight) {
             
             let startTime2 = CFAbsoluteTimeGetCurrent()
             if let prediction = try? model.prediction(image: pixelBuffer) {
                 
                 let timeElapsed2 = CFAbsoluteTimeGetCurrent() - startTime2
-                print("Time elapsed for coreml: \(timeElapsed2) seconds")
+                print("coreml elapsed for \(timeElapsed2) seconds")
                 
                 // view
                 imageView.image = UIImage(pixelBuffer: pixelBuffer)
@@ -75,69 +75,54 @@ class ViewController: UIViewController {
                 
                 let doublePtr =  pred.dataPointer.bindMemory(to: Double.self, capacity: length)
                 let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
-                let mm = ValueArray<Double>(Array(doubleBuffer))
+                let mm = Array(doubleBuffer)
                 
                 drewLine(mm)
             }
         }
     }
     
-    
-    func drewLine(_ mm: ValueArray<Double>){
+    func drewLine(_ mm: Array<Double>){
         
-        let heatMapLen = 19*com.HeatRows*com.HeatColumns
-        var heatMat = ValueArray<Double>(mm[0..<heatMapLen])
-            .toMatrix(rows: 19, columns: com.HeatRows*com.HeatColumns)
-        var pafMat  = ValueArray<Double>(mm[heatMapLen..<mm.count])
-            .toMatrix(rows: 38, columns: com.HeatRows*com.HeatColumns)
-        print(heatMat.count)
-        print(pafMat.count)
+        let com = Common(ImageWidth,ImageHeight)
         
-        // Use of local variable 'estimate_pose' before its declaration
-        //                print(pafMat)
-        let startTime = CFAbsoluteTimeGetCurrent()
-        let connections = com.estimate_pose(heatMat: &heatMat,pafMat: &pafMat)
+        let h = imageView.image?.size.height
+        let imageH = Int(h!)
+        let w = imageView.image?.size.width
+        let imageW = Int(w!)
         
-        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-        print("Time elapsed for estimate_pose: \(timeElapsed) seconds")
+        let heatH = ImageHeight / 8
+        let heatW = ImageWidth / 8
         
-        let image_h = com.ImageHeight
-        let image_w = com.ImageWidth
-        let heat_h = com.HeatColumns
-        let heat_w = com.HeatRows
+        let res = measure(com.estimatePose(mm))
+        let connections = res.result;
+        print("estimate_pose \(res.duration)")
         
-        let CocoPairsRender = com.CocoPairs[0..<com.CocoPairs.count-2]
+        let CocoPairsRender = com.cocoPairs[0..<com.cocoPairs.count-2]
         
-        //      print(connections)
         for human in connections.values {
-            for (part_idx, part) in human.enumerated() {
+            for (partIdx, part) in human.enumerated() {
                 
-                // print(part.partIdx)
                 if !CocoPairsRender.contains(part.partIdx){
                     continue
                 }
                 
-                //                let center1 = CGPoint(x: Int(Int((Float(part.c1.0)) + 0.5) * image_w / heat_w), y: Int(Int((Float(part.c1.1) + 0.5)) * image_h / heat_h))
-                //                let center2 = CGPoint(x: Int(Int((Float(part.c2.0)) + 0.5) * image_w / heat_w), y: Int(Int((Float(part.c2.1) + 0.5)) * image_h / heat_h))
-                //
+                let center1 = CGPoint(x: Int(Int(part.c1.0) * imageW / heatW), y: Int(Int(part.c1.1) * imageH / heatH))
+                let center2 = CGPoint(x: Int(Int(part.c2.0) * imageW / heatW), y: Int(Int(part.c2.1) * imageH / heatH))
                 
-                let center1 = CGPoint(x: Int(Int(part.c1.0) * image_w / heat_w), y: Int(Int(part.c1.1) * image_h / heat_h))
-                let center2 = CGPoint(x: Int(Int(part.c2.0) * image_w / heat_w), y: Int(Int(part.c2.1) * image_h / heat_h))
-                
-                // let test = CocoColors[part_idx]
-                addLine(fromPoint: center1, toPoint: center2)
+                addLine(fromPoint: center1, toPoint: center2, color: com.cocoColors[partIdx])
             }
         }
     }
     
-    func addLine(fromPoint start: CGPoint, toPoint end:CGPoint) {
+    func addLine(fromPoint start: CGPoint, toPoint end:CGPoint, color: UIColor) {
         let line = CAShapeLayer()
         let linePath = UIBezierPath()
         linePath.move(to: start)
         linePath.addLine(to: end)
         line.path = linePath.cgPath
-        line.strokeColor = UIColor.red.cgColor
-        line.lineWidth = 4
+        line.strokeColor = color.cgColor
+        line.lineWidth = 3
         line.lineJoin = kCALineJoinRound
         self.view.layer.addSublayer(line)
     }
