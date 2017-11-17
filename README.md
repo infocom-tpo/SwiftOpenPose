@@ -16,11 +16,10 @@ human_roop Time elapsed for roop: 0.575976967811584 seconds
 estimate_pose Elapsed time is 0.913830041885376 seconds.
 Total time is 3.32556003332138 seconds.
 ```
-* coreml elapsed for 2.37669098377228 seconds
-
-CoreML processing is slow..
-And speed up the whole process is necessary.
-The total processing time is 3.32556003332138 seconds.
+* coreml elapsed for 2.37669098377228 seconds  
+CoreML processing is slow..  
+And speed up the whole process is necessary.  
+The total processing time is 3.32556003332138 seconds.  
 
 * BenchMark iPad 2017.
  * iOS11
