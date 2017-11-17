@@ -1,52 +1,43 @@
-## このプロジェクトは？
+## SwiftOpenPose
 
-[OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)をiOSで動かすプロジェクトです。  
-[tf-openpose](https://github.com/ildoonet/tf-openpose)をベースに作成しています
+This project was developed by transplanting [tf-openpose](https://github.com/ildoonet/tf-openpose) to Swift.
 
-## ライセンス
+![swiftopenpose_result](images/swiftopenpose_result.png)
 
-OpenPoseのコード利用は有料ですが、tf-openposeはApache2ライセンスになる為、tf-openposeをベースに開発していますので、ライセンスフリーになると考えています。  
-公に利用する際は、法務に確認をお願いします。  
-  
-また、ボーンの取得には、OpenPoseのCaffe-modelを利用しますがモデルは「[BAIR model license](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/3rdparty/caffe/docs/model_zoo.md)」になるそうで基本的には無料でモデルは利用可能と考えています。  
-
-## 課題
-
-リアルタイムにボーンを取得するには更なる高速化が必要です。
-現在のベンチ(2017/11/14)
+## Performance Problem.
 
 ```
-iPad 2017 Benchmark
-Double 1 x 1 x 57 x 46 x 46 array
-
-========
-Time elapsed for copy: 0.133957028388977 seconds
-Time elapsed for init: 1.002081990242 seconds
-Time elapsed for estimate_pose_pair: 0.0317380428314209 seconds
-Time elapsed for roop: 0.055433988571167 seconds
-
--SubTotal:
-Time elapsed for code: 1.15459597110748 seconds
-Time elapsed for coreml: 2.33745795488358 seconds
-
-Total:
-Elapsed time is 3.6908860206604 seconds.
+coreml elapsed for 2.37669098377228 seconds
+init elapsed for 0.240312993526459 seconds
+estimate_pose_pair: elapsed for 0.0315470099449158 seconds
+others elapsed for 0.0973029732704163 seconds
+human_roop Time elapsed for roop: 0.575976967811584 seconds
+estimate_pose Elapsed time is 0.913830041885376 seconds.
+Total time is 3.32556003332138 seconds.
 ```
+* coreml elapsed for 2.37669098377228 seconds
 
-コードについては、初期処理の10行程度のコードで1秒かかっています。  
-coremlについては57x46x46次元のデータを扱っていますので、減らすことで大きく改善が見込めます。  
+CoreML processing is slow..
+And speed up the whole process is necessary.
+The total processing time is 3.32556003332138 seconds.
 
+* BenchMark iPad 2017.
+ * iOS11
+ * Xcode9
 
-## モデルのダウンロード
+## MLModel Create
 
-Caffe-modelをmlmodelにコンバートする必要があります。
-Caffe-modelをコンバートするには、Caffe-modelと、prototxtを入手します。
+Caffe-model to mlmodel convert.
 
-* [OpenPoseのインストールページ](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md)から「COCO model」をダウンロードします
-* [pose_deploy_linevec.prototxt](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/models/pose/coco)をダウンロードします
+### Get Caffe-model and prototxt.
 
-下記pythonコードでコンバートします。  
-pip等でcoremltoolsのインストールが必要です。
+* [Get Caffe-model](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md)
+  * Download of COCO Model
+* [Get pose_deploy_linevec.prototxt](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/models/pose/coco)
+
+### Caffe-model to mlmodel convert.
+* [install coremltools](https://pypi.python.org/pypi/coremltools)
+* Run python here
 ```
 import coremltools
 
@@ -62,23 +53,17 @@ coreml_model = coremltools.converters.caffe.convert((caffe_model, proto_file)
 coreml_model.save('coco_pose_368.mlmodel')
 ```
 
-## 依存ライブラリ
+## Dependencies Library
 
 * [UpSurge](https://github.com/aleph7/Upsurge)
- * import UpSurge.xcodeproj
 * [CoreMLHelpers](https://github.com/hollance/CoreMLHelpers)
- * import Demo.xcodeproj
 * [IteratorTools](https://github.com/mpangburn/IteratorTools)
- * import UpSurge.xcodeproj
 * [OpenCV](https://opencv.org/releases.html)
- * iOS packをダウンロードし、import
+  * Download of iOS Pack
 
-OpenCV以外は*.xcodeprojをimportします  
+## Refarence
 
-## *.xcodeproj import
-
-* Build Phases -> Target Dependencies
-* Build Phases -> [+] -> New Copy File Phase -> New File
- * Destinationのプルダウンを Frameworksに変更
- * [+] でFrameworkを追加
-
+* [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+* [tf-openpose](https://github.com/ildoonet/tf-openpose)
+* [OpenPose Caffe Model Convert to CoreML Model
+Raw](https://gist.github.com/otmb/7b2e1caf3330b97c82dc217af5844ad5)

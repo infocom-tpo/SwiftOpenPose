@@ -23,12 +23,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         print("========")
-        if let image = UIImage(named: "person1.jpg"){
-            print(measure(runJsonFile(image)).duration)
-        }
-//        if let image = UIImage(named: "hadou.jpg"){
-//            print(measure(runCoreML(image)).duration)
+//        if let image = UIImage(named: "person1.jpg"){
+//            print(measure(runJsonFile(image)).duration)
 //        }
+        if let image = UIImage(named: "hadou.jpg"){
+            print(measure(runCoreML(image)).duration)
+        }
     }
     
     func measure <T> (_ f: @autoclosure () -> T) -> (result: T, duration: String) {
