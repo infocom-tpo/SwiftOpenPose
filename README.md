@@ -5,7 +5,14 @@ Help improve performance of SwiftOpenPose.
 
 ![swiftopenpose_result](images/swiftopenpose_result.png)
 
+## Environment
+* iOS11
+* Xcode9
+
 ## Performance Problem.
+
+BenchMark Hardware
+  * iPad 2017
 
 ```
 coreml elapsed for 2.37669098377228 seconds
@@ -20,10 +27,6 @@ Total time is 3.32556003332138 seconds.
 CoreML processing is slow..  
 And speed up the whole process is necessary.  
 The total processing time is 3.32556003332138 seconds.  
-
-* BenchMark iPad 2017.
- * iOS11
- * Xcode9
 
 ## MLModel Create
 
