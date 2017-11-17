@@ -65,5 +65,4 @@ coreml_model.save('coco_pose_368.mlmodel')
 
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [tf-openpose](https://github.com/ildoonet/tf-openpose)
-* [OpenPose Caffe Model Convert to CoreML Model
-Raw](https://gist.github.com/otmb/7b2e1caf3330b97c82dc217af5844ad5)
+* [OpenPose Caffe Model Convert to CoreML Model](https://gist.github.com/otmb/7b2e1caf3330b97c82dc217af5844ad5)
