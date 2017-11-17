@@ -1,4 +1,4 @@
-## SwiftOpenPose
+# SwiftOpenPose
 
 This project was developed by transplanting [tf-openpose](https://github.com/ildoonet/tf-openpose) to Swift.
 
@@ -66,3 +66,12 @@ coreml_model.save('coco_pose_368.mlmodel')
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [tf-openpose](https://github.com/ildoonet/tf-openpose)
 * [OpenPose Caffe Model Convert to CoreML Model](https://gist.github.com/otmb/7b2e1caf3330b97c82dc217af5844ad5)
+* [エネルギー波を繰り出す女子高生](https://www.pakutaso.com/20151016274post-6129.html)
+
+## Development By Infocom TPO
+
+[Infocom TPO](https://lab.infocom.co.jp/)
+
+## License
+
+SwiftOpenPose is available under the MIT license. See the LICENSE file for more info.
