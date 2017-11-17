@@ -1,6 +1,7 @@
 # SwiftOpenPose
 
-This project was developed by transplanting [tf-openpose](https://github.com/ildoonet/tf-openpose) to Swift.
+This project was developed by transplanting [tf-openpose](https://github.com/ildoonet/tf-openpose) to Swift.  
+Help improve performance of SwiftOpenPose.
 
 ![swiftopenpose_result](images/swiftopenpose_result.png)
 
