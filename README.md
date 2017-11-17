@@ -38,6 +38,19 @@ Caffe-model to mlmodel convert.
   * Download of COCO Model
 * [Get pose_deploy_linevec.prototxt](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/models/pose/coco)
 
+#### Edit pose_deploy_linevec.prototxt
+
+edit input_dim of pose_deploy_linevec.prototxt.    
+input_dim: 368
+
+``` 
+input: "image"
+input_dim: 1
+input_dim: 3
+input_dim: 368 # This value will be defined at runtime
+input_dim: 368 # This value will be defined at runtime
+```
+
 ### Caffe-model to mlmodel convert.
 * [install coremltools](https://pypi.python.org/pypi/coremltools)
 * Run python here
