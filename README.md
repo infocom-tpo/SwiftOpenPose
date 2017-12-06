@@ -114,3 +114,14 @@ coreml_model.save('coco_pose_368.mlmodel')
 ## License
 
 SwiftOpenPose is available under the MIT license. See the LICENSE file for more info.
+
+## Citation
+
+```
+@inproceedings{cao2017realtime,
+  author = {Zhe Cao and Tomas Simon and Shih-En Wei and Yaser Sheikh},
+  booktitle = {CVPR},
+  title = {Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields},
+  year = {2017}
+}
+```
