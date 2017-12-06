@@ -1,7 +1,7 @@
 # SwiftOpenPose
 
 This project was developed by transplanting [tf-openpose](https://github.com/ildoonet/tf-openpose) to Swift.  
-Help improve performance of SwiftOpenPose.
+Community cooperation is welcome.  
 
 ![swiftopenpose_result](images/swiftopenpose_result.png)
 
@@ -11,22 +11,45 @@ Help improve performance of SwiftOpenPose.
 
 ## Performance Problem.
 
-BenchMark Hardware
-  * iPad 2017
+* BenchMark Setting
+  * **Optimization Level**
+    * Fast, Whole Module Optimization
 
+* BenchMark Hardware
+  * iPad 2017
 ```
-coreml elapsed for 2.37669098377228 seconds
-init elapsed for 0.240312993526459 seconds
-estimate_pose_pair: elapsed for 0.0315470099449158 seconds
-others elapsed for 0.0973029732704163 seconds
-human_roop Time elapsed for roop: 0.575976967811584 seconds
-estimate_pose Elapsed time is 0.913830041885376 seconds.
-Total time is 3.32556003332138 seconds.
+coreml elapsed for 3.72523802518845 seconds
+init elapsed for 0.0884829759597778 seconds
+estimate_pose_pair: elapsed for 0.0128589868545532 seconds
+others elapsed for 0.0258489847183228 seconds
+human_roop Time elapsed for roop: 0.231473982334137 seconds
+estimate_pose Elapsed time is 0.346040964126587 seconds.
+Elapsed time is 4.09996396303177 seconds.
 ```
+  * iPad Pro 12inch
+```
+coreml elapsed for 1.7250149846077 seconds
+init elapsed for 0.0669110417366028 seconds
+estimate_pose_pair: elapsed for 0.0077439546585083 seconds
+others elapsed for 0.0165799856185913 seconds
+human_roop Time elapsed for roop: 0.10324501991272 seconds
+estimate_pose Elapsed time is 0.186879992485046 seconds.
+Elapsed time is 1.93221199512482 seconds.
+```
+
+## Bench Thinking from results
+
 * coreml elapsed for 2.37669098377228 seconds  
 CoreML processing is slow..  
-And speed up the whole process is necessary.  
-The total processing time is 3.32556003332138 seconds.  
+Coreml processing time is 2 - 4 seconds.
+
+So we challenged OpenPose-Model to speed up.  
+
+* [OpenPose Keras Mobilenet-Model](https://github.com/infocom-tpo/tf-openpose/tree/master/convert)
+  * Result: However it did not work.
+
+
+# The following is how to execute this project
 
 ## MLModel Create
 
