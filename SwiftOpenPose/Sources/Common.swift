@@ -89,6 +89,12 @@ class Common {
         let pafMat = Matrix<Double>(rows: 38, columns: heatRows*heatColumns,
                                     elements: Array<Double>(mm[separateLen..<mm.count]))
         
+//        let separateLen = 38*heatRows*heatColumns
+//        let pafMat = Matrix<Double>(rows: 38, columns: heatRows*heatColumns,
+//                                     elements: Array<Double>(mm[0..<separateLen]))
+//        var heatMat = Matrix<Double>(rows: 19, columns: heatRows*heatColumns,
+//                                    elements: Array<Double>(mm[separateLen..<mm.count]))
+        
         heatMat = Matrix<Double>(
             (0..<heatMat.rows).map({ ValueArray<Double>(heatMat.row($0)) - min(heatMat.row($0)) }))
         

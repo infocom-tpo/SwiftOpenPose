@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */; };
+		CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */ = {isa = PBXBuildFile; fileRef = CA77F5AA1FCBA978009C83B9 /* hadou.bin */; };
+		CAAEFC911FD7783E00C987D9 /* mobilenet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */; };
 		CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */; };
 		CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */; };
 		CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */; };
@@ -23,7 +25,7 @@
 		CAF52F701FBAA83F006395B1 /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E54D1FBAA4E700ECCD30 /* Upsurge.framework */; };
 		CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; };
 		CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; };
-		CAF52F771FBAAB4F006395B1 /* hoge.bin in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F761FBAAB4A006395B1 /* hoge.bin */; };
+		CAF52F771FBAAB4F006395B1 /* person1.bin in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F761FBAAB4A006395B1 /* person1.bin */; };
 		CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF52F791FBAAFF1006395B1 /* opencv2.framework */; };
 		CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */; };
 /* End PBXBuildFile section */
@@ -156,6 +158,8 @@
 
 /* Begin PBXFileReference section */
 		CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_224.mlmodel; sourceTree = "<group>"; };
+		CA77F5AA1FCBA978009C83B9 /* hadou.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hadou.bin; sourceTree = "<group>"; };
+		CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mobilenet.mlmodel; sourceTree = "<group>"; };
 		CAB3E5131FBAA44A00ECCD30 /* SwiftOpenPose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOpenPose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +176,7 @@
 		CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hadou.jpg; sourceTree = "<group>"; };
 		CAB3E5661FBAA68F00ECCD30 /* person1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person1.jpg; sourceTree = "<group>"; };
-		CAF52F761FBAAB4A006395B1 /* hoge.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hoge.bin; sourceTree = "<group>"; };
+		CAF52F761FBAAB4A006395B1 /* person1.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = person1.bin; sourceTree = "<group>"; };
 		CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_368.mlmodel; sourceTree = "<group>"; };
 		CAF52F791FBAAFF1006395B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,8 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */,
+				CA77F5AA1FCBA978009C83B9 /* hadou.bin */,
 				CAB3E5661FBAA68F00ECCD30 /* person1.jpg */,
-				CAF52F761FBAAB4A006395B1 /* hoge.bin */,
+				CAF52F761FBAAB4A006395B1 /* person1.bin */,
+				CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */,
 				CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */,
 				CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */,
 			);
@@ -453,7 +459,8 @@
 				CAB3E5681FBAA69600ECCD30 /* hadou.jpg in Resources */,
 				CAB3E51E1FBAA44A00ECCD30 /* Assets.xcassets in Resources */,
 				CAB3E5671FBAA69300ECCD30 /* person1.jpg in Resources */,
-				CAF52F771FBAAB4F006395B1 /* hoge.bin in Resources */,
+				CAF52F771FBAAB4F006395B1 /* person1.bin in Resources */,
+				CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */,
 				CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAEFC911FD7783E00C987D9 /* mobilenet.mlmodel in Sources */,
 				CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */,
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
 				CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */,
@@ -626,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KC7CYU5P84;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -636,6 +645,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tpo.o2.SwiftOpenPose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftOpenPose/SwiftOpenPose-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -648,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KC7CYU5P84;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -658,6 +670,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tpo.o2.SwiftOpenPose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftOpenPose/SwiftOpenPose-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

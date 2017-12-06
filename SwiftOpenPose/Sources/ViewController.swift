@@ -13,7 +13,8 @@ import Upsurge
 
 class ViewController: UIViewController {
     
-    let model = coco_pose_368()
+//    let model = coco_pose_368()
+    let model = mobilenet()
     let ImageWidth = 368
     let ImageHeight = 368
     
@@ -23,10 +24,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         print("========")
-//        if let image = UIImage(named: "person1.jpg"){
+//        if let image = UIImage(named: "hadou.jpg"){
 //            print(measure(runJsonFile(image)).duration)
 //        }
-        if let image = UIImage(named: "hadou.jpg"){
+        
+//        let fname = "hadou.jpg"
+        let fname = "person1.jpg"
+        if let image = UIImage(named: fname){
             print(measure(runCoreML(image)).duration)
         }
     }
@@ -41,7 +45,7 @@ class ViewController: UIViewController {
     func runJsonFile(_ image: UIImage) {
         imageView.image = image
         
-        let url = Bundle.main.url(forResource: "hoge", withExtension: "bin")!
+        let url = Bundle.main.url(forResource: "hadou", withExtension: "bin")!
         let text2 = try? String(contentsOf: url, encoding: .utf8)
         let personalData: Data = text2!.data(using: String.Encoding.utf8)!
         let json = try? JSONSerialization.jsonObject(with: personalData, options: [])
@@ -70,13 +74,16 @@ class ViewController: UIViewController {
                 // view
                 imageView.image = UIImage(pixelBuffer: pixelBuffer)
                 
+//                let pred = prediction.MConv_Stage7_concat
                 let pred = prediction.net_output
                 let length = pred.count
+//                print(length)
+                print(pred)
                 
                 let doublePtr =  pred.dataPointer.bindMemory(to: Double.self, capacity: length)
                 let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
                 let mm = Array(doubleBuffer)
-                
+//                print(mm)
                 drewLine(mm)
             }
         }
