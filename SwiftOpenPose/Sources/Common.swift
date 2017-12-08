@@ -29,9 +29,9 @@ struct Connection {
     var c2: (Int, Int)
     var idx: (Int, Int)
     var partIdx: CGPoint
-    var uPartIdx: [String]
+    var uPartIdx: Set<String>
     
-    init(score: Double,c1: (Int, Int),c2: (Int, Int),idx: (Int, Int),partIdx: CGPoint,uPartIdx: [String]) {
+    init(score: Double,c1: (Int, Int),c2: (Int, Int),idx: (Int, Int),partIdx: CGPoint,uPartIdx: Set<String>) {
         self.score = score
         self.c1 = c1
         self.c2 = c2
@@ -89,12 +89,6 @@ class Common {
         let pafMat = Matrix<Double>(rows: 38, columns: heatRows*heatColumns,
                                     elements: Array<Double>(mm[separateLen..<mm.count]))
         
-//        let separateLen = 38*heatRows*heatColumns
-//        let pafMat = Matrix<Double>(rows: 38, columns: heatRows*heatColumns,
-//                                     elements: Array<Double>(mm[0..<separateLen]))
-//        var heatMat = Matrix<Double>(rows: 19, columns: heatRows*heatColumns,
-//                                    elements: Array<Double>(mm[separateLen..<mm.count]))
-        
         heatMat = Matrix<Double>(
             (0..<heatMat.rows).map({ ValueArray<Double>(heatMat.row($0)) - min(heatMat.row($0)) }))
         
@@ -135,7 +129,7 @@ class Common {
         }
         
         // result heatMat parts
-        let startTime2 = CFAbsoluteTimeGetCurrent()
+//        let startTime2 = CFAbsoluteTimeGetCurrent()
         
         var conn = [Connection]()
         for (idx, paf) in zip(cocoPairs, cocoPairsNetwork) {
@@ -151,8 +145,8 @@ class Common {
             conn.append(contentsOf: connection)
         }
         
-        let timeElapsed2 = CFAbsoluteTimeGetCurrent() - startTime2
-        print("estimate_pose_pair: elapsed for \(timeElapsed2) seconds")
+//        let timeElapsed2 = CFAbsoluteTimeGetCurrent() - startTime2
+//        print("estimate_pose_pair: elapsed for \(timeElapsed2) seconds")
         
         var connectionByHuman = [Int: [Connection]]()
         for (idx, c) in conn.enumerated(){
@@ -187,12 +181,9 @@ class Common {
                     continue
                 }
                 
-                // Will the processing work well without the dictionary order?
                 for prd in product(connectionByHuman[k1]!,connectionByHuman[k2]!){
-                    let c1 = prd[0]
-                    let c2 = prd[1]
-                    let c = Array<String>(Set(c1.uPartIdx)) + Array<String>(Set(c2.uPartIdx))
-                    if c.count > Set(c).count {
+                    
+                    if prd[0].uPartIdx.intersection(prd[1].uPartIdx).count > 0 {
                         if let num = connectionIndexTmp.index(of: k2) {
                             is_merged = true
                             connectionByHuman[k1]!.append(contentsOf: connectionByHuman[k2]!)
@@ -313,7 +304,7 @@ class Common {
                     c2: (x2, y2),
                     idx: (idx1, idx2),
                     partIdx: CGPoint(x: partIdx1,y: partIdx2),
-                    uPartIdx: [String(format: "%d-%d-%d", x1, y1, partIdx1) , String(format: "%d-%d-%d", x2, y2, partIdx2)]
+                    uPartIdx: Set<String>([String(format: "%d-%d-%d", x1, y1, partIdx1) , String(format: "%d-%d-%d", x2, y2, partIdx2)])
                 ))
             }
         }
