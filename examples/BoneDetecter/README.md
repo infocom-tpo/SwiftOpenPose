@@ -33,7 +33,7 @@ For using this app, you need to accept requests to access your camera and photo 
 
 <img src="images/usage1.gif" width=120 height=260></img>
 
-1. Tap <font color="red">●</font> to start recording.  
+1. Tap <font color="red">●</font> to start recording.  
 
 1. Tap <font color="red">■</font> to stop recording.  
 
