@@ -36,13 +36,18 @@ There are two learning models available for this project.
   * Download of iOS Pack
   * [Opencv lightweight version](doc/openpose_minimum.md)
 
+## Examples
+
+* [Bone Detecter](examples/BoneDetecter)  
+This app exports a video with detected bones to photo library.  
+You can shoot or select a video to detect bones.
 
 ## Blogs
 
 * Explanation by Japanese
   * [AI初心者がOpenPoseのモバイル実装に取り組んだ話](https://qiita.com/otmb/items/b924b5f600db1ce11037)
 
-## Refarence
+## Reference
 
 * [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 * [tf-openpose](https://github.com/ildoonet/tf-openpose)
