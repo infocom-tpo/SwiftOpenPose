@@ -7,11 +7,11 @@ You can shoot or select a video to detect bones.
 
 ## Demo  
 
-<img src="images/before1.gif" width=135 height=240></img>
-<img src="images/after1.gif" width=135 height=240></img>
+![before1](images/before1.gif)
+![after1](images/after1.gif)
 
-<img src="images/before2.gif" width=270 height=180></img>
-<img src="images/after2.gif" width=270 height=180></img>
+![before2](images/before2.gif)
+![after2](images/after2.gif)
 
 ## Environment  
 * iOS11  
@@ -31,7 +31,7 @@ For using this app, you need to accept requests to access your camera and photo 
 
 ### Shoot a Video to Detect Bones  
 
-<img src="images/usage1.gif" width=120 height=260></img>
+![usage1](images/usage1.gif)
 
 1. Tap <font color="red">●</font> to start recording.  
 
@@ -41,7 +41,7 @@ For using this app, you need to accept requests to access your camera and photo 
 
 ### Select a Video to Detect Bones  
 
-<img src="images/usage2.gif" width=120 height=260></img>
+![usage2](images/usage2.gif)
 
 1. Tap the thumbnail at the lower left corner of the screen.  
 (When there are no videos in photo library, the thumbnail is not displayed)  
