@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  SwiftOpenPose
-//
-//  Created by tpomac2017 on 2017/11/14.
-//  Copyright © 2017年 tpomac2017. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

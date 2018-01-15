@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SwiftOpenPose
-//
-//  Created by tpomac2017 on 2017/11/14.
-//  Copyright © 2017年 tpomac2017. All rights reserved.
-//
-
 import UIKit
 import CoreML
 import CoreMLHelpers
@@ -14,7 +6,7 @@ import Upsurge
 class ViewController: UIViewController {
     
 //    let model = coco_pose_368()
-    let model = mobilenet()
+    let model = MobileOpenPose()
     let ImageWidth = 368
     let ImageHeight = 368
     
@@ -28,8 +20,9 @@ class ViewController: UIViewController {
 //            print(measure(runJsonFile(image)).duration)
 //        }
         
-//        let fname = "hadou.jpg"
-        let fname = "person1.jpg"
+        let fname = "hadou.jpg"
+//        let fname = "lifting"
+//        let fname = "person1.jpg"
         if let image = UIImage(named: fname){
             print(measure(runCoreML(image)).duration)
         }
@@ -91,33 +84,33 @@ class ViewController: UIViewController {
     
     func drewLine(_ mm: Array<Double>){
         
-        let com = Common(ImageWidth,ImageHeight)
+        let com = TfPoseEstimator(ImageWidth,ImageHeight)
         
         let h = imageView.image?.size.height
         let imageH = Int(h!)
         let w = imageView.image?.size.width
         let imageW = Int(w!)
         
-        let heatH = ImageHeight / 8
-        let heatW = ImageWidth / 8
+        let res = measure(com.estimate(mm))
+        let humans = res.result;
+        print("estimate \(res.duration)")
         
-        let res = measure(com.estimatePose(mm))
-        let connections = res.result;
-        print("estimate_pose \(res.duration)")
-        
-        let CocoPairsRender = com.cocoPairs[0..<com.cocoPairs.count-2]
-        
-        for human in connections.values {
-            for (partIdx, part) in human.enumerated() {
-                
-                if !CocoPairsRender.contains(part.partIdx){
+        for human in humans {
+            var centers = [Int: CGPoint]()
+            for i in 0...CocoPart.Background.rawValue {
+                if human.bodyParts.keys.index(of: i) == nil {
                     continue
                 }
-                
-                let center1 = CGPoint(x: Int(Int(part.c1.0) * imageW / heatW), y: Int(Int(part.c1.1) * imageH / heatH))
-                let center2 = CGPoint(x: Int(Int(part.c2.0) * imageW / heatW), y: Int(Int(part.c2.1) * imageH / heatH))
-                
-                addLine(fromPoint: center1, toPoint: center2, color: com.cocoColors[partIdx])
+                let bodyPart = human.bodyParts[i]!
+                centers[i] = CGPoint(x: Int(bodyPart.x * CGFloat(imageW) + 0.5), y: Int(bodyPart.y * CGFloat(imageH) + 0.5))
+            }
+            for (pairOrder, (pair1,pair2)) in CocoPairsRender.enumerated() {
+                if human.bodyParts.keys.index(of: pair1) == nil || human.bodyParts.keys.index(of: pair2) == nil {
+                    continue
+                }
+                if centers.index(forKey: pair1) != nil && centers.index(forKey: pair2) != nil{
+                    addLine(fromPoint: centers[pair1]!, toPoint: centers[pair2]!, color: CocoColors[pairOrder])
+                }
             }
         }
     }
