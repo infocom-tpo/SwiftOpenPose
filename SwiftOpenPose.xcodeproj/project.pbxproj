@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA15329D2008694E00798781 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA15329C2008694E00798781 /* Estimator.swift */; };
 		CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */; };
+		CA23C7FC2004664500C484F0 /* MobileOpenPose200.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */; };
+		CA5709F91FF25390009742FC /* MobileOpenPose.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */; };
+		CA5709FA1FF25441009742FC /* person1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5661FBAA68F00ECCD30 /* person1.jpg */; };
 		CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */ = {isa = PBXBuildFile; fileRef = CA77F5AA1FCBA978009C83B9 /* hadou.bin */; };
+		CA88C07B200CAADA00DB8A66 /* Upsurge.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CA88C074200CAA9E00DB8A66 /* Upsurge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAAEFC911FD7783E00C987D9 /* mobilenet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */; };
 		CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */; };
 		CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */; };
 		CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */; };
 		CAB3E51E1FBAA44A00ECCD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51D1FBAA44A00ECCD30 /* Assets.xcassets */; };
 		CAB3E5211FBAA44A00ECCD30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51F1FBAA44A00ECCD30 /* LaunchScreen.storyboard */; };
-		CAB3E55B1FBAA52E00ECCD30 /* Upsurge.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CAB3E54D1FBAA4E700ECCD30 /* Upsurge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAB3E55C1FBAA53200ECCD30 /* IteratorTools.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAB3E55D1FBAA53700ECCD30 /* CoreMLHelpers.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E55E1FBAA5A500ECCD30 /* Common.swift */; };
 		CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */; };
-		CAB3E5671FBAA69300ECCD30 /* person1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5661FBAA68F00ECCD30 /* person1.jpg */; };
 		CAB3E5681FBAA69600ECCD30 /* hadou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */; };
-		CAF52F701FBAA83F006395B1 /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E54D1FBAA4E700ECCD30 /* Upsurge.framework */; };
 		CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; };
 		CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; };
 		CAF52F771FBAAB4F006395B1 /* person1.bin in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F761FBAAB4A006395B1 /* person1.bin */; };
@@ -31,6 +33,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA88C06F200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 614ACA701BD1CB7B00A1C13E;
+			remoteInfo = "Upsurge OSX";
+		};
+		CA88C071200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 614ACA7A1BD1CB7B00A1C13E;
+			remoteInfo = "UpsurgeTests OSX";
+		};
+		CA88C073200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 614ACACA1BD1CBF300A1C13E;
+			remoteInfo = "Upsurge iOS";
+		};
+		CA88C075200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 614ACAD31BD1CBF300A1C13E;
+			remoteInfo = "UpsurgeTests iOS";
+		};
+		CA88C077200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 61D0466D1C48BA5B00DB7279;
+			remoteInfo = "Upsurge tvOS";
+		};
+		CA88C079200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 61D046761C48BA5B00DB7279;
+			remoteInfo = "UpsurgeTests tvOS";
+		};
 		CAB3E5301FBAA4A500ECCD30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
@@ -66,55 +110,6 @@
 			remoteGlobalIDString = 89E8F1A71F4F2CC9000FC583;
 			remoteInfo = IteratorToolsTests;
 		};
-		CAB3E5481FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACA701BD1CB7B00A1C13E;
-			remoteInfo = "Upsurge OSX";
-		};
-		CAB3E54A1FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACA7A1BD1CB7B00A1C13E;
-			remoteInfo = "UpsurgeTests OSX";
-		};
-		CAB3E54C1FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACACA1BD1CBF300A1C13E;
-			remoteInfo = "Upsurge iOS";
-		};
-		CAB3E54E1FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACAD31BD1CBF300A1C13E;
-			remoteInfo = "UpsurgeTests iOS";
-		};
-		CAB3E5501FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61D0466D1C48BA5B00DB7279;
-			remoteInfo = "Upsurge tvOS";
-		};
-		CAB3E5521FBAA4E700ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61D046761C48BA5B00DB7279;
-			remoteInfo = "UpsurgeTests tvOS";
-		};
-		CAB3E5541FBAA4FA00ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 614ACAC91BD1CBF300A1C13E;
-			remoteInfo = "Upsurge iOS";
-		};
 		CAB3E5561FBAA4FD00ECCD30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
@@ -147,9 +142,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CA88C07B200CAADA00DB8A66 /* Upsurge.framework in Copy Freamworks */,
 				CAB3E55D1FBAA53700ECCD30 /* CoreMLHelpers.framework in Copy Freamworks */,
 				CAB3E55C1FBAA53200ECCD30 /* IteratorTools.framework in Copy Freamworks */,
-				CAB3E55B1FBAA52E00ECCD30 /* Upsurge.framework in Copy Freamworks */,
 			);
 			name = "Copy Freamworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,8 +152,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CA15329C2008694E00798781 /* Estimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estimator.swift; sourceTree = "<group>"; };
 		CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_224.mlmodel; sourceTree = "<group>"; };
+		CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose200.mlmodel; sourceTree = "<group>"; };
+		CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose.mlmodel; sourceTree = "<group>"; };
 		CA77F5AA1FCBA978009C83B9 /* hadou.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hadou.bin; sourceTree = "<group>"; };
+		CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Upsurge.xcodeproj; path = ../../../src/Upsurge/Upsurge.xcodeproj; sourceTree = "<group>"; };
 		CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mobilenet.mlmodel; sourceTree = "<group>"; };
 		CAB3E5131FBAA44A00ECCD30 /* SwiftOpenPose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOpenPose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,7 +168,6 @@
 		CAB3E5221FBAA44B00ECCD30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Demo.xcodeproj; path = "../../../Downloads/CoreMLHelpers-master/Demo/Demo.xcodeproj"; sourceTree = "<group>"; };
 		CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IteratorTools.xcodeproj; path = "../../../Downloads/IteratorTools-master/IteratorTools.xcodeproj"; sourceTree = "<group>"; };
-		CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Upsurge.xcodeproj; path = ../../../src/Upsurge/Upsurge.xcodeproj; sourceTree = "<group>"; };
 		CAB3E55E1FBAA5A500ECCD30 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CAB3E5601FBAA5AD00ECCD30 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		CAB3E5611FBAA5B700ECCD30 /* SwiftOpenPose-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftOpenPose-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF52F701FBAA83F006395B1 /* Upsurge.framework in Frameworks */,
 				CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */,
 				CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */,
 				CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */,
@@ -199,10 +196,12 @@
 		CA167CB41FBEC95F002123F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */,
 				CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */,
 				CA77F5AA1FCBA978009C83B9 /* hadou.bin */,
 				CAB3E5661FBAA68F00ECCD30 /* person1.jpg */,
 				CAF52F761FBAAB4A006395B1 /* person1.bin */,
+				CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */,
 				CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */,
 				CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */,
 				CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */,
@@ -214,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB3E55E1FBAA5A500ECCD30 /* Common.swift */,
+				CA15329C2008694E00798781 /* Estimator.swift */,
 				CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */,
 				CAB3E5601FBAA5AD00ECCD30 /* OpenCVWrapper.h */,
 				CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */,
@@ -222,10 +222,23 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		CA88C067200CAA9E00DB8A66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA88C070200CAA9E00DB8A66 /* Upsurge.framework */,
+				CA88C072200CAA9E00DB8A66 /* UpsurgeTests OSX.xctest */,
+				CA88C074200CAA9E00DB8A66 /* Upsurge.framework */,
+				CA88C076200CAA9E00DB8A66 /* UpsurgeTests iOS.xctest */,
+				CA88C078200CAA9E00DB8A66 /* Upsurge.framework */,
+				CA88C07A200CAA9E00DB8A66 /* UpsurgeTests tvOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CAB3E50A1FBAA44A00ECCD30 = {
 			isa = PBXGroup;
 			children = (
-				CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */,
+				CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */,
 				CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */,
 				CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */,
 				CAB3E5151FBAA44A00ECCD30 /* SwiftOpenPose */,
@@ -275,19 +288,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CAB3E5401FBAA4E700ECCD30 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CAB3E5491FBAA4E700ECCD30 /* Upsurge.framework */,
-				CAB3E54B1FBAA4E700ECCD30 /* UpsurgeTests OSX.xctest */,
-				CAB3E54D1FBAA4E700ECCD30 /* Upsurge.framework */,
-				CAB3E54F1FBAA4E700ECCD30 /* UpsurgeTests iOS.xctest */,
-				CAB3E5511FBAA4E700ECCD30 /* Upsurge.framework */,
-				CAB3E5531FBAA4E700ECCD30 /* UpsurgeTests tvOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CAF52F6A1FBAA83F006395B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +314,6 @@
 			dependencies = (
 				CAB3E5591FBAA50000ECCD30 /* PBXTargetDependency */,
 				CAB3E5571FBAA4FD00ECCD30 /* PBXTargetDependency */,
-				CAB3E5551FBAA4FA00ECCD30 /* PBXTargetDependency */,
 			);
 			name = SwiftOpenPose;
 			productName = SwiftOpenPose;
@@ -359,8 +358,8 @@
 					ProjectRef = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
 				},
 				{
-					ProductGroup = CAB3E5401FBAA4E700ECCD30 /* Products */;
-					ProjectRef = CAB3E53F1FBAA4E700ECCD30 /* Upsurge.xcodeproj */;
+					ProductGroup = CA88C067200CAA9E00DB8A66 /* Products */;
+					ProjectRef = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -371,6 +370,48 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		CA88C070200CAA9E00DB8A66 /* Upsurge.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Upsurge.framework;
+			remoteRef = CA88C06F200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA88C072200CAA9E00DB8A66 /* UpsurgeTests OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UpsurgeTests OSX.xctest";
+			remoteRef = CA88C071200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA88C074200CAA9E00DB8A66 /* Upsurge.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Upsurge.framework;
+			remoteRef = CA88C073200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA88C076200CAA9E00DB8A66 /* UpsurgeTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UpsurgeTests iOS.xctest";
+			remoteRef = CA88C075200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA88C078200CAA9E00DB8A66 /* Upsurge.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Upsurge.framework;
+			remoteRef = CA88C077200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA88C07A200CAA9E00DB8A66 /* UpsurgeTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UpsurgeTests tvOS.xctest";
+			remoteRef = CA88C079200CAA9E00DB8A66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		CAB3E5311FBAA4A500ECCD30 /* Demo.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -406,48 +447,6 @@
 			remoteRef = CAB3E53D1FBAA4BF00ECCD30 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAB3E5491FBAA4E700ECCD30 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CAB3E5481FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E54B1FBAA4E700ECCD30 /* UpsurgeTests OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests OSX.xctest";
-			remoteRef = CAB3E54A1FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E54D1FBAA4E700ECCD30 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CAB3E54C1FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E54F1FBAA4E700ECCD30 /* UpsurgeTests iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests iOS.xctest";
-			remoteRef = CAB3E54E1FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E5511FBAA4E700ECCD30 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CAB3E5501FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E5531FBAA4E700ECCD30 /* UpsurgeTests tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests tvOS.xctest";
-			remoteRef = CAB3E5521FBAA4E700ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -457,8 +456,8 @@
 			files = (
 				CAB3E5211FBAA44A00ECCD30 /* LaunchScreen.storyboard in Resources */,
 				CAB3E5681FBAA69600ECCD30 /* hadou.jpg in Resources */,
+				CA5709FA1FF25441009742FC /* person1.jpg in Resources */,
 				CAB3E51E1FBAA44A00ECCD30 /* Assets.xcassets in Resources */,
-				CAB3E5671FBAA69300ECCD30 /* person1.jpg in Resources */,
 				CAF52F771FBAAB4F006395B1 /* person1.bin in Resources */,
 				CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */,
 				CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */,
@@ -476,20 +475,18 @@
 				CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */,
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
 				CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */,
+				CA15329D2008694E00798781 /* Estimator.swift in Sources */,
 				CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */,
+				CA23C7FC2004664500C484F0 /* MobileOpenPose200.mlmodel in Sources */,
 				CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */,
 				CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */,
+				CA5709F91FF25390009742FC /* MobileOpenPose.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CAB3E5551FBAA4FA00ECCD30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Upsurge iOS";
-			targetProxy = CAB3E5541FBAA4FA00ECCD30 /* PBXContainerItemProxy */;
-		};
 		CAB3E5571FBAA4FD00ECCD30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IteratorTools;
@@ -636,14 +633,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KC7CYU5P84;
+				DEVELOPMENT_TEAM = U3FCTVM259;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SwiftOpenPose/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tpo.o2.SwiftOpenPose;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocom.tpo.o2.SwiftOpenPose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -661,14 +658,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KC7CYU5P84;
+				DEVELOPMENT_TEAM = U3FCTVM259;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SwiftOpenPose/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tpo.o2.SwiftOpenPose;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocom.tpo.o2.SwiftOpenPose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftOpenPose/SwiftOpenPose-Bridging-Header.h";
