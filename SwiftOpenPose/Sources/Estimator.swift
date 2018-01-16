@@ -24,15 +24,15 @@ class Human {
     }
     func addPair(_ pair: Connection){
         self.pairs.append(pair)
-
+        
         self.bodyParts[pair.partIdx1] = BodyPart(_getUidx(pair.partIdx1, pair.idx1),
-                                                   pair.partIdx1,
-                                                   pair.coord1.0, pair.coord1.1, pair.score)
-
+                                                 pair.partIdx1,
+                                                 pair.coord1.0, pair.coord1.1, pair.score)
+        
         self.bodyParts[pair.partIdx2] = BodyPart(_getUidx(pair.partIdx2, pair.idx2),
-                                                  pair.partIdx2,
-                                                  pair.coord2.0, pair.coord2.1, pair.score)
-
+                                                 pair.partIdx2,
+                                                 pair.coord2.0, pair.coord2.1, pair.score)
+        
         let uidx: [String] = [_getUidx(pair.partIdx1, pair.idx1),_getUidx(pair.partIdx2, pair.idx2)]
         self.uidxList.formUnion(uidx)
     }
@@ -42,17 +42,18 @@ class Human {
             self.addPair(pair)
         }
     }
-
+    
     func isConnected(_ other: Human) -> Bool {
         return uidxList.intersection(other.uidxList).count > 0
     }
+    func partCount() -> Int {
+        return self.bodyParts.count
+    }
     
-//    def part_count(self):
-//        return len(self.body_parts.keys())
-//    def get_max_score(self):
-//        return max([x.score for _, x in self.body_parts.items()])
-//    def __str__(self):
-//        return ' '.join([str(x) for x in self.body_parts.values()])
+    func getMaxScore() -> Double {
+        return max(self.bodyParts.map{ $0.value.score })
+    }
+    
 }
 
 class BodyPart {
@@ -102,23 +103,22 @@ struct Connection {
     }
 }
 
-class TfPoseEstimator {
+class PoseEstimator {
     
     let opencv = OpenCVWrapper()
     
     var heatRows = 0
     var heatColumns = 0
     
-//    heatmap_supress = False
-//    heatmap_gaussian = False
-//    adaptive_threshold = False
+    //    heatmap_supress = False
+    //    heatmap_gaussian = False
+    //    adaptive_threshold = False
     
     let nmsThreshold = 0.1
     let localPAFThreshold = 0.1
     let pafCountThreshold = 5
     let partCountThreshold = 4.0
     let partScoreThreshold = 0.6
-    
     
     init(_ imageWidth: Int,_ imageHeight: Int){
         heatRows = imageWidth / 8
@@ -143,39 +143,32 @@ class TfPoseEstimator {
         
         let timeElapsed4 = CFAbsoluteTimeGetCurrent() - startTime4
         print("init elapsed for \(timeElapsed4) seconds")
-//
+        
         let startTime3 = CFAbsoluteTimeGetCurrent()
-//
+        
         // print(sum(heatMat.elements)) // 810.501374994155
         var _nmsThreshold = max(mean(data) * 4.0, nmsThreshold)
         _nmsThreshold = min(_nmsThreshold, 0.3)
         print(_nmsThreshold) // 0.0806388792154168
-        var coords = [[[Int]]]()
         
-        //        print("============")
-        //        print(heatMat.elements.count) // 40204
-        //        print(heatMat.columns) // 2116
-        //        print(heatMat.rows) // 19
-        //        print(_NMS_Threshold)
+        var coords = [[(Int,Int)]]()
         for i in 0..<heatMat.rows-1 {
             var nms = Array<Double>(heatMat.row(i))
             nonMaxSuppression(&nms, dataRows: Int32(heatColumns),
                               maskSize: 5, threshold: _nmsThreshold)
             let c = nms.enumerated().filter{ $0.1 > _nmsThreshold }.map { x in
-                return  [ Int(x.0 / heatRows) , Int(x.0 % heatRows) ]
+                return ( x.0 / heatRows , x.0 % heatRows )
             }
             coords.append(c)
         }
         
-        var pairs = [Connection]()
-
         var pairsByConn = [Connection]()
         for ((partIdx1, partIdx2), (pafXIdx, pafYIdx)) in zip(CocoPairs, CocoPairsNetwork){
-            pairs = score_pairs(
+            let pairs = scorePairs(
                 partIdx1, partIdx2,
                 coords[partIdx1], coords[partIdx2],
-                ValueArray<Double>(pafMat.row(pafXIdx)), ValueArray<Double>(pafMat.row(pafYIdx)),
-                heatMat.elements,
+                Array<Double>(pafMat.row(pafXIdx)), Array<Double>(pafMat.row(pafYIdx)),
+                &data,
                 rescale: (1.0 / CGFloat(heatColumns), 1.0 / CGFloat(heatRows))
             )
             pairsByConn.append(contentsOf: pairs)
@@ -189,7 +182,7 @@ class TfPoseEstimator {
         let startTime = CFAbsoluteTimeGetCurrent()
         
         while true {
-            var mergeItems = [Human]()
+            var mergeItems : (Human,Human)!
             for idx in humans.combinations(length: 2){
                 let k1 = idx[0]
                 let k2 = idx[1]
@@ -197,13 +190,14 @@ class TfPoseEstimator {
                     continue
                 }
                 if k1.isConnected(k2){
-                    mergeItems = [k1,k2]
+                    mergeItems = (k1,k2)
                     break
                 }
             }
-            if mergeItems.count > 0 {
-                mergeItems[0].merge(mergeItems[1])
-                if let i = humans.index(where: { $0.name == mergeItems[1].name }) {
+            
+            if mergeItems != nil {
+                mergeItems.0.merge(mergeItems.1)
+                if let i = humans.index(where: { $0.name == mergeItems.1.name }) {
                     humans.remove(at: i)
                 }
             } else {
@@ -214,8 +208,13 @@ class TfPoseEstimator {
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("human_roop Time elapsed for roop: \(timeElapsed) seconds")
         
-        return humans
+        // reject by subset count
+        humans = humans.filter{ $0.partCount() >= pafCountThreshold }
         
+        // reject by subset max score
+        humans = humans.filter{ $0.getMaxScore() >= partScoreThreshold }
+        
+        return humans
     }
     
     func nonMaxSuppression(_ data: inout [Double],
@@ -232,8 +231,7 @@ class TfPoseEstimator {
         )
     }
     
-    
-    func getScore(_ x1 : Int,_ y1: Int,_ x2: Int,_ y2: Int,_ pafMatX: ValueArray<Double>,_ pafMatY: ValueArray<Double>) -> (Double,Int) {
+    func getScore(_ x1 : Int,_ y1: Int,_ x2: Int,_ y2: Int,_ pafMatX: [Double],_ pafMatY: [Double]) -> (Double,Int) {
         let __numInter = 10
         let __numInterF = Double(__numInter)
         let dx = Double(x2 - x1)
@@ -277,22 +275,16 @@ class TfPoseEstimator {
         return (sum(thidxs), thidxs.count)
     }
     
-    func score_pairs(_ partIdx1: Int,_ partIdx2: Int,_ coordList1: [[Int]],_ coordList2: [[Int]],
-                     _ pafMatX: ValueArray<Double>,_ pafMatY: ValueArray<Double>,
-                     _ heatmap: ValueArray<Double>, rescale: (CGFloat,CGFloat) = (1.0, 1.0)) -> [Connection] {
+    func scorePairs(_ partIdx1: Int,_ partIdx2: Int,
+                    _ coordList1: [(Int,Int)],_ coordList2: [(Int,Int)],
+                    _ pafMatX: [Double],_ pafMatY: [Double],
+                    _ heatmap: inout [Double],
+                    rescale: (CGFloat,CGFloat) = (1.0, 1.0)) -> [Connection] {
         
         var connectionTmp = [Connection]()
-        var cnt = 0
-        for (idx1,x) in coordList1.enumerated() {
-            let x1 = x[1]
-            let y1 = x[0]
-            for (idx2,x) in coordList2.enumerated() {
-                let x2 = x[1]
-                let y2 = x[0]
-//        for (idx1, (y1, x1)) in zip(coord_list1[0], coord_list1[1]).enumerated() {
-//            for (idx2, (y2, x2)) in zip(coord_list2[0], coord_list2[1]).enumerated() {
+        for (idx1,(y1,x1)) in coordList1.enumerated() {
+            for (idx2,(y2,x2)) in coordList2.enumerated() {
                 let (score, count) = getScore(x1, y1, x2, y2, pafMatX, pafMatY)
-                cnt += 1
                 if count < pafCountThreshold || score <= 0.0 {
                     continue
                 }
@@ -313,7 +305,7 @@ class TfPoseEstimator {
         var usedIdx1 = [Int]()
         var usedIdx2 = [Int]()
         connectionTmp.sorted{ $0.score > $1.score }.forEach { conn in
-
+            
             if usedIdx1.contains(conn.idx1) || usedIdx2.contains(conn.idx2) {
                 return
             }
@@ -324,3 +316,4 @@ class TfPoseEstimator {
         return connection
     }
 }
+

@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     
     func drewLine(_ mm: Array<Double>){
         
-        let com = TfPoseEstimator(ImageWidth,ImageHeight)
+        let com = PoseEstimator(ImageWidth,ImageHeight)
         
         let h = imageView.image?.size.height
         let imageH = Int(h!)
