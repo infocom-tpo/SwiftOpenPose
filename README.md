@@ -30,11 +30,16 @@ There are two learning models available for this project.
 ## Dependencies Library
 
 * [UpSurge](https://github.com/aleph7/Upsurge)
-* [CoreMLHelpers](https://github.com/hollance/CoreMLHelpers)
 * [IteratorTools](https://github.com/mpangburn/IteratorTools)
 * [OpenCV](https://opencv.org/releases.html)
   * Download of iOS Pack
   * [Opencv lightweight version](doc/openpose_minimum.md)
+
+## Installation
+
+```
+$ pod install
+```
 
 ## Examples
 

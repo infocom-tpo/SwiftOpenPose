@@ -9,9 +9,6 @@ target 'SwiftOpenPose' do
 
   pod 'Upsurge', '~> 0.10.0'
   pod 'IteratorTools'
-  # pod 'CoreMLHelpers'
-  # pod 'CoreMLHelpers', :git => 'https://github.com/hollance/CoreMLHelpers.git'
-
   pod 'OpenCV'
 
 end
