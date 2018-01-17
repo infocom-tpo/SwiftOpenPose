@@ -183,7 +183,7 @@ class PoseEstimator {
         
         while true {
             var mergeItems : (Human,Human)!
-            for idx in humans.combinations(length: 2){
+            for idx in humans.combinations(length: 2, repeatingElements: false){
                 let k1 = idx[0]
                 let k2 = idx[1]
                 if k1.name == k2.name {

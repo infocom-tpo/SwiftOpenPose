@@ -7,122 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA03F794F70AA636398F477 /* Pods_SwiftOpenPose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627EB96B33E0B834AB2CD203 /* Pods_SwiftOpenPose.framework */; };
 		CA15329D2008694E00798781 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA15329C2008694E00798781 /* Estimator.swift */; };
-		CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */; };
-		CA23C7FC2004664500C484F0 /* MobileOpenPose200.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */; };
-		CA5709F91FF25390009742FC /* MobileOpenPose.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */; };
 		CA5709FA1FF25441009742FC /* person1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5661FBAA68F00ECCD30 /* person1.jpg */; };
 		CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */ = {isa = PBXBuildFile; fileRef = CA77F5AA1FCBA978009C83B9 /* hadou.bin */; };
-		CA88C07B200CAADA00DB8A66 /* Upsurge.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CA88C074200CAA9E00DB8A66 /* Upsurge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAAEFC911FD7783E00C987D9 /* mobilenet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */; };
+		CAB11F8D200EF40400354701 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB11F86200EF40400354701 /* UIImage+CVPixelBuffer.swift */; };
+		CAB11F9B200EF4E500354701 /* MobileOpenPose.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAB11F9A200EF4E400354701 /* MobileOpenPose.mlmodel */; };
 		CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */; };
 		CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */; };
 		CAB3E51C1FBAA44A00ECCD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */; };
 		CAB3E51E1FBAA44A00ECCD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51D1FBAA44A00ECCD30 /* Assets.xcassets */; };
 		CAB3E5211FBAA44A00ECCD30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E51F1FBAA44A00ECCD30 /* LaunchScreen.storyboard */; };
-		CAB3E55C1FBAA53200ECCD30 /* IteratorTools.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAB3E55D1FBAA53700ECCD30 /* CoreMLHelpers.framework in Copy Freamworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E55E1FBAA5A500ECCD30 /* Common.swift */; };
 		CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CAB3E5621FBAA5B700ECCD30 /* OpenCVWrapper.mm */; };
 		CAB3E5681FBAA69600ECCD30 /* hadou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */; };
-		CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */; };
-		CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */; };
 		CAF52F771FBAAB4F006395B1 /* person1.bin in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F761FBAAB4A006395B1 /* person1.bin */; };
-		CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF52F791FBAAFF1006395B1 /* opencv2.framework */; };
-		CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CA88C06F200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
+		CAB11FA3200EF5D800354701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 614ACA701BD1CB7B00A1C13E;
-			remoteInfo = "Upsurge OSX";
-		};
-		CA88C071200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACA7A1BD1CB7B00A1C13E;
-			remoteInfo = "UpsurgeTests OSX";
-		};
-		CA88C073200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACACA1BD1CBF300A1C13E;
-			remoteInfo = "Upsurge iOS";
-		};
-		CA88C075200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 614ACAD31BD1CBF300A1C13E;
-			remoteInfo = "UpsurgeTests iOS";
-		};
-		CA88C077200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61D0466D1C48BA5B00DB7279;
-			remoteInfo = "Upsurge tvOS";
-		};
-		CA88C079200CAA9E00DB8A66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61D046761C48BA5B00DB7279;
-			remoteInfo = "UpsurgeTests tvOS";
-		};
-		CAB3E5301FBAA4A500ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7B4A360D1F35E6FA009A6364;
-			remoteInfo = Demo;
-		};
-		CAB3E5321FBAA4A500ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7B4AFF7C1F40863100AF62F3;
-			remoteInfo = Tests;
-		};
-		CAB3E5341FBAA4A500ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7B4AFF8B1F40873F00AF62F3;
-			remoteInfo = CoreMLHelpers;
-		};
-		CAB3E53B1FBAA4BF00ECCD30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 89E8F19E1F4F2CC9000FC583;
+			remoteGlobalIDString = 1660FEFF44DCE7A4534FD7C5CF24855C;
 			remoteInfo = IteratorTools;
 		};
-		CAB3E53D1FBAA4BF00ECCD30 /* PBXContainerItemProxy */ = {
+		CAB11FA5200EF5D800354701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
+			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 89E8F1A71F4F2CC9000FC583;
-			remoteInfo = IteratorToolsTests;
+			remoteGlobalIDString = BE5523185456D15FD818984697DCBA88;
+			remoteInfo = OpenCV;
 		};
-		CAB3E5561FBAA4FD00ECCD30 /* PBXContainerItemProxy */ = {
+		CAB11FA7200EF5D800354701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 89E8F19D1F4F2CC9000FC583;
-			remoteInfo = IteratorTools;
+			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8D20ED2B995CF146CBD25A821FC04E0;
+			remoteInfo = "Pods-SwiftOpenPose";
 		};
-		CAB3E5581FBAA50000ECCD30 /* PBXContainerItemProxy */ = {
+		CAB11FA9200EF5D800354701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7B4AFF8A1F40873F00AF62F3;
-			remoteInfo = CoreMLHelpers;
+			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8F0F147B3386C9B8BA800C19189043F;
+			remoteInfo = Upsurge;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -142,9 +71,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA88C07B200CAADA00DB8A66 /* Upsurge.framework in Copy Freamworks */,
-				CAB3E55D1FBAA53700ECCD30 /* CoreMLHelpers.framework in Copy Freamworks */,
-				CAB3E55C1FBAA53200ECCD30 /* IteratorTools.framework in Copy Freamworks */,
 			);
 			name = "Copy Freamworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,13 +78,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		627EB96B33E0B834AB2CD203 /* Pods_SwiftOpenPose.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOpenPose.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4279409A975C21FF02FCAA2 /* Pods-SwiftOpenPose.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenPose.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose.release.xcconfig"; sourceTree = "<group>"; };
+		B9B207F68D23D8BD956D00E7 /* Pods-SwiftOpenPose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenPose.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose.debug.xcconfig"; sourceTree = "<group>"; };
 		CA15329C2008694E00798781 /* Estimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estimator.swift; sourceTree = "<group>"; };
-		CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_224.mlmodel; sourceTree = "<group>"; };
-		CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose200.mlmodel; sourceTree = "<group>"; };
-		CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose.mlmodel; sourceTree = "<group>"; };
 		CA77F5AA1FCBA978009C83B9 /* hadou.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hadou.bin; sourceTree = "<group>"; };
-		CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Upsurge.xcodeproj; path = ../../../src/Upsurge/Upsurge.xcodeproj; sourceTree = "<group>"; };
-		CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mobilenet.mlmodel; sourceTree = "<group>"; };
+		CAB11F86200EF40400354701 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		CAB11F9A200EF4E400354701 /* MobileOpenPose.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose.mlmodel; sourceTree = "<group>"; };
+		CAB11F9C200EF5D800354701 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		CAB3E5131FBAA44A00ECCD30 /* SwiftOpenPose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOpenPose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB3E5161FBAA44A00ECCD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB3E5181FBAA44A00ECCD30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,8 +93,6 @@
 		CAB3E51D1FBAA44A00ECCD30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAB3E5201FBAA44A00ECCD30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAB3E5221FBAA44B00ECCD30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Demo.xcodeproj; path = "../../../Downloads/CoreMLHelpers-master/Demo/Demo.xcodeproj"; sourceTree = "<group>"; };
-		CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IteratorTools.xcodeproj; path = "../../../Downloads/IteratorTools-master/IteratorTools.xcodeproj"; sourceTree = "<group>"; };
 		CAB3E55E1FBAA5A500ECCD30 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CAB3E5601FBAA5AD00ECCD30 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		CAB3E5611FBAA5B700ECCD30 /* SwiftOpenPose-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftOpenPose-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -175,8 +100,6 @@
 		CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hadou.jpg; sourceTree = "<group>"; };
 		CAB3E5661FBAA68F00ECCD30 /* person1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person1.jpg; sourceTree = "<group>"; };
 		CAF52F761FBAAB4A006395B1 /* person1.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = person1.bin; sourceTree = "<group>"; };
-		CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coco_pose_368.mlmodel; sourceTree = "<group>"; };
-		CAF52F791FBAAFF1006395B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,27 +107,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF52F741FBAA844006395B1 /* IteratorTools.framework in Frameworks */,
-				CAF52F751FBAA848006395B1 /* CoreMLHelpers.framework in Frameworks */,
-				CAF52F7A1FBAB007006395B1 /* opencv2.framework in Frameworks */,
+				1FA03F794F70AA636398F477 /* Pods_SwiftOpenPose.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B66C01653C39AD9F20EB92E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9B207F68D23D8BD956D00E7 /* Pods-SwiftOpenPose.debug.xcconfig */,
+				A4279409A975C21FF02FCAA2 /* Pods-SwiftOpenPose.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CA167CB41FBEC95F002123F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CA23C7FB2004664500C484F0 /* MobileOpenPose200.mlmodel */,
 				CAB3E5651FBAA68A00ECCD30 /* hadou.jpg */,
 				CA77F5AA1FCBA978009C83B9 /* hadou.bin */,
 				CAB3E5661FBAA68F00ECCD30 /* person1.jpg */,
 				CAF52F761FBAAB4A006395B1 /* person1.bin */,
-				CA5709F01FF25390009742FC /* MobileOpenPose.mlmodel */,
-				CAAEFC901FD7783E00C987D9 /* mobilenet.mlmodel */,
-				CAF52F781FBAADF3006395B1 /* coco_pose_368.mlmodel */,
-				CA1654AA1FBD80620057D89F /* coco_pose_224.mlmodel */,
+				CAB11F9A200EF4E400354701 /* MobileOpenPose.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -222,28 +148,41 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		CA88C067200CAA9E00DB8A66 /* Products */ = {
+		CAB11F9D200EF5D800354701 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA88C070200CAA9E00DB8A66 /* Upsurge.framework */,
-				CA88C072200CAA9E00DB8A66 /* UpsurgeTests OSX.xctest */,
-				CA88C074200CAA9E00DB8A66 /* Upsurge.framework */,
-				CA88C076200CAA9E00DB8A66 /* UpsurgeTests iOS.xctest */,
-				CA88C078200CAA9E00DB8A66 /* Upsurge.framework */,
-				CA88C07A200CAA9E00DB8A66 /* UpsurgeTests tvOS.xctest */,
+				CAB11FA4200EF5D800354701 /* IteratorTools.framework */,
+				CAB11FA6200EF5D800354701 /* opencv2.framework */,
+				CAB11FA8200EF5D800354701 /* Pods_SwiftOpenPose.framework */,
+				CAB11FAA200EF5D800354701 /* Upsurge.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CAB11FAC200EF6F000354701 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				CAB11FAD200EF72600354701 /* CoreMLHelpers */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		CAB11FAD200EF72600354701 /* CoreMLHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				CAB11F86200EF40400354701 /* UIImage+CVPixelBuffer.swift */,
+			);
+			path = CoreMLHelpers;
 			sourceTree = "<group>";
 		};
 		CAB3E50A1FBAA44A00ECCD30 = {
 			isa = PBXGroup;
 			children = (
-				CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */,
-				CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */,
-				CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */,
+				CAB11F9C200EF5D800354701 /* Pods.xcodeproj */,
 				CAB3E5151FBAA44A00ECCD30 /* SwiftOpenPose */,
 				CAB3E5141FBAA44A00ECCD30 /* Products */,
 				CAF52F6A1FBAA83F006395B1 /* Frameworks */,
+				7B66C01653C39AD9F20EB92E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +197,7 @@
 		CAB3E5151FBAA44A00ECCD30 /* SwiftOpenPose */ = {
 			isa = PBXGroup;
 			children = (
+				CAB11FAC200EF6F000354701 /* Vendors */,
 				CA167CB41FBEC95F002123F8 /* Resources */,
 				CA167CB61FBECAB1002123F8 /* Sources */,
 				CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */,
@@ -269,29 +209,10 @@
 			path = SwiftOpenPose;
 			sourceTree = "<group>";
 		};
-		CAB3E52B1FBAA4A500ECCD30 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CAB3E5311FBAA4A500ECCD30 /* Demo.app */,
-				CAB3E5331FBAA4A500ECCD30 /* Tests.xctest */,
-				CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CAB3E5371FBAA4BF00ECCD30 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */,
-				CAB3E53E1FBAA4BF00ECCD30 /* IteratorToolsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CAF52F6A1FBAA83F006395B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CAF52F791FBAAFF1006395B1 /* opencv2.framework */,
+				627EB96B33E0B834AB2CD203 /* Pods_SwiftOpenPose.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,17 +224,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAB3E5251FBAA44B00ECCD30 /* Build configuration list for PBXNativeTarget "SwiftOpenPose" */;
 			buildPhases = (
+				397C634FF4A0CBB63469DD70 /* [CP] Check Pods Manifest.lock */,
 				CAB3E50F1FBAA44A00ECCD30 /* Sources */,
 				CAB3E5101FBAA44A00ECCD30 /* Frameworks */,
 				CAB3E5111FBAA44A00ECCD30 /* Resources */,
 				CAB3E55A1FBAA50700ECCD30 /* Copy Freamworks */,
 				CA9A64E31FBAB32900F21802 /* CopyFiles */,
+				6342E78AC6AA68CEED177837 /* [CP] Embed Pods Frameworks */,
+				AB02CFB7B3DF08E9FFA577D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CAB3E5591FBAA50000ECCD30 /* PBXTargetDependency */,
-				CAB3E5571FBAA4FD00ECCD30 /* PBXTargetDependency */,
 			);
 			name = SwiftOpenPose;
 			productName = SwiftOpenPose;
@@ -350,16 +272,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CAB3E52B1FBAA4A500ECCD30 /* Products */;
-					ProjectRef = CAB3E52A1FBAA4A500ECCD30 /* Demo.xcodeproj */;
-				},
-				{
-					ProductGroup = CAB3E5371FBAA4BF00ECCD30 /* Products */;
-					ProjectRef = CAB3E5361FBAA4BF00ECCD30 /* IteratorTools.xcodeproj */;
-				},
-				{
-					ProductGroup = CA88C067200CAA9E00DB8A66 /* Products */;
-					ProjectRef = CA88C066200CAA9E00DB8A66 /* Upsurge.xcodeproj */;
+					ProductGroup = CAB11F9D200EF5D800354701 /* Products */;
+					ProjectRef = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -370,81 +284,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CA88C070200CAA9E00DB8A66 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CA88C06F200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA88C072200CAA9E00DB8A66 /* UpsurgeTests OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests OSX.xctest";
-			remoteRef = CA88C071200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA88C074200CAA9E00DB8A66 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CA88C073200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA88C076200CAA9E00DB8A66 /* UpsurgeTests iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests iOS.xctest";
-			remoteRef = CA88C075200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA88C078200CAA9E00DB8A66 /* Upsurge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Upsurge.framework;
-			remoteRef = CA88C077200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA88C07A200CAA9E00DB8A66 /* UpsurgeTests tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UpsurgeTests tvOS.xctest";
-			remoteRef = CA88C079200CAA9E00DB8A66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E5311FBAA4A500ECCD30 /* Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Demo.app;
-			remoteRef = CAB3E5301FBAA4A500ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E5331FBAA4A500ECCD30 /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = CAB3E5321FBAA4A500ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E5351FBAA4A500ECCD30 /* CoreMLHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CoreMLHelpers.framework;
-			remoteRef = CAB3E5341FBAA4A500ECCD30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAB3E53C1FBAA4BF00ECCD30 /* IteratorTools.framework */ = {
+		CAB11FA4200EF5D800354701 /* IteratorTools.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IteratorTools.framework;
-			remoteRef = CAB3E53B1FBAA4BF00ECCD30 /* PBXContainerItemProxy */;
+			remoteRef = CAB11FA3200EF5D800354701 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAB3E53E1FBAA4BF00ECCD30 /* IteratorToolsTests.xctest */ = {
+		CAB11FA6200EF5D800354701 /* opencv2.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = IteratorToolsTests.xctest;
-			remoteRef = CAB3E53D1FBAA4BF00ECCD30 /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = opencv2.framework;
+			remoteRef = CAB11FA5200EF5D800354701 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAB11FA8200EF5D800354701 /* Pods_SwiftOpenPose.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_SwiftOpenPose.framework;
+			remoteRef = CAB11FA7200EF5D800354701 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAB11FAA200EF5D800354701 /* Upsurge.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Upsurge.framework;
+			remoteRef = CAB11FA9200EF5D800354701 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -466,38 +331,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		397C634FF4A0CBB63469DD70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftOpenPose-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6342E78AC6AA68CEED177837 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IteratorTools/IteratorTools.framework",
+				"${BUILT_PRODUCTS_DIR}/OpenCV/opencv2.framework",
+				"${BUILT_PRODUCTS_DIR}/Upsurge/Upsurge.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IteratorTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Upsurge.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB02CFB7B3DF08E9FFA577D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CAB3E50F1FBAA44A00ECCD30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAAEFC911FD7783E00C987D9 /* mobilenet.mlmodel in Sources */,
 				CAB3E5631FBAA5B700ECCD30 /* OpenCVWrapper.mm in Sources */,
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
-				CA1654B31FBD80BE0057D89F /* coco_pose_224.mlmodel in Sources */,
+				CAB11F9B200EF4E500354701 /* MobileOpenPose.mlmodel in Sources */,
+				CAB11F8D200EF40400354701 /* UIImage+CVPixelBuffer.swift in Sources */,
 				CA15329D2008694E00798781 /* Estimator.swift in Sources */,
 				CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */,
-				CA23C7FC2004664500C484F0 /* MobileOpenPose200.mlmodel in Sources */,
 				CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */,
-				CAF52F7B1FBAB01E006395B1 /* coco_pose_368.mlmodel in Sources */,
-				CA5709F91FF25390009742FC /* MobileOpenPose.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CAB3E5571FBAA4FD00ECCD30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IteratorTools;
-			targetProxy = CAB3E5561FBAA4FD00ECCD30 /* PBXContainerItemProxy */;
-		};
-		CAB3E5591FBAA50000ECCD30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CoreMLHelpers;
-			targetProxy = CAB3E5581FBAA50000ECCD30 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CAB3E51A1FBAA44A00ECCD30 /* Main.storyboard */ = {
@@ -628,7 +535,9 @@
 		};
 		CAB3E5261FBAA44B00ECCD30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B207F68D23D8BD956D00E7 /* Pods-SwiftOpenPose.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -653,7 +562,9 @@
 		};
 		CAB3E5271FBAA44B00ECCD30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4279409A975C21FF02FCAA2 /* Pods-SwiftOpenPose.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -24,3 +24,6 @@ DerivedData/
 *.mlmodel
 opencv2.framework
 .DS_Store
+
+#CocoaPod
+Pods/*
