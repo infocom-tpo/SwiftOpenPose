@@ -47,6 +47,9 @@ $ pod install
 This app exports a video with detected bones to photo library.  
 You can shoot or select a video to detect bones.
 
+![before1](examples/BoneDetecter/images/before1.gif)
+![after1](examples/BoneDetecter/images/after1.gif)
+
 ## Blogs
 
 * Explanation by Japanese
