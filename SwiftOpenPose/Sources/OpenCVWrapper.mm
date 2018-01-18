@@ -123,6 +123,8 @@ using namespace std;
     UIImageToMat(correctImage, mat);
     
     int stickwidth = 10;
+    cv::Mat mat2;
+    std::vector<cv::Point> polygon;
     
     for(int i = 0; i < keypoint_size; i++)
     {
@@ -153,11 +155,8 @@ using namespace std;
         CGFloat mX = (p1.x + p2.x) / 2.0;
         CGFloat mY = (p1.y + p2.y) / 2.0;
         cv::Point center = cv::Point(int(mX), int(mY));
-
-        std::vector<cv::Point> polygon;
         cv::ellipse2Poly(center, cv::Size(int(length / 2), stickwidth), int(angle), 0 , 360 , 1, polygon);
         
-        cv::Mat mat2;
         mat.copyTo(mat2);
         cv::fillConvexPoly(mat2, polygon, color);
         cv::addWeighted(mat, 0.4, mat2, 0.6, 0, mat);
@@ -170,7 +169,15 @@ using namespace std;
 //                 cv::Point(int(p2.x * width + 0.5), int(p2.y * height + 0.5)),
 //                 color,5,CV_8UC4);
     }
-    return MatToUIImage(mat);
+    
+    UIImage *preview = MatToUIImage(mat);
+    vector<cv::Point>().swap(polygon);
+    vector<int>().swap(key);
+    vector<CGPoint>().swap(position);
+    mat2.release();
+    mat.release();
+    
+    return preview;
 }
 
 @end
