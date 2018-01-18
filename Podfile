@@ -8,7 +8,7 @@ target 'SwiftOpenPose' do
   # Pods for SwiftOpenPose
 
   pod 'Upsurge', '~> 0.10.0'
-  pod 'IteratorTools'
-  pod 'OpenCV'
+#  pod 'IteratorTools', '~> 1.1.0'
+  pod 'OpenCV', '~> 3.3.1'
 
 end

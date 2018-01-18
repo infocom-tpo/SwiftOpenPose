@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FA03F794F70AA636398F477 /* Pods_SwiftOpenPose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627EB96B33E0B834AB2CD203 /* Pods_SwiftOpenPose.framework */; };
 		CA15329D2008694E00798781 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA15329C2008694E00798781 /* Estimator.swift */; };
+		CA269A22200F4B1D00704A73 /* ios_conversions.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA269A21200F4B1D00704A73 /* ios_conversions.mm */; };
 		CA5709FA1FF25441009742FC /* person1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3E5661FBAA68F00ECCD30 /* person1.jpg */; };
 		CA77F5AB1FCBA978009C83B9 /* hadou.bin in Resources */ = {isa = PBXBuildFile; fileRef = CA77F5AA1FCBA978009C83B9 /* hadou.bin */; };
 		CAB11F8D200EF40400354701 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB11F86200EF40400354701 /* UIImage+CVPixelBuffer.swift */; };
@@ -25,13 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CAB11FA3200EF5D800354701 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1660FEFF44DCE7A4534FD7C5CF24855C;
-			remoteInfo = IteratorTools;
-		};
 		CAB11FA5200EF5D800354701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAB11F9C200EF5D800354701 /* Pods.xcodeproj */;
@@ -82,6 +76,8 @@
 		A4279409A975C21FF02FCAA2 /* Pods-SwiftOpenPose.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenPose.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose.release.xcconfig"; sourceTree = "<group>"; };
 		B9B207F68D23D8BD956D00E7 /* Pods-SwiftOpenPose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOpenPose.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose.debug.xcconfig"; sourceTree = "<group>"; };
 		CA15329C2008694E00798781 /* Estimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estimator.swift; sourceTree = "<group>"; };
+		CA269A1C200F487200704A73 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CA269A21200F4B1D00704A73 /* ios_conversions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_conversions.mm; sourceTree = "<group>"; };
 		CA77F5AA1FCBA978009C83B9 /* hadou.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = hadou.bin; sourceTree = "<group>"; };
 		CAB11F86200EF40400354701 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
 		CAB11F9A200EF4E400354701 /* MobileOpenPose.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileOpenPose.mlmodel; sourceTree = "<group>"; };
@@ -148,10 +144,17 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		CA269A23200F4B7500704A73 /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				CA269A21200F4B1D00704A73 /* ios_conversions.mm */,
+			);
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
 		CAB11F9D200EF5D800354701 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CAB11FA4200EF5D800354701 /* IteratorTools.framework */,
 				CAB11FA6200EF5D800354701 /* opencv2.framework */,
 				CAB11FA8200EF5D800354701 /* Pods_SwiftOpenPose.framework */,
 				CAB11FAA200EF5D800354701 /* Upsurge.framework */,
@@ -162,6 +165,7 @@
 		CAB11FAC200EF6F000354701 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				CA269A23200F4B7500704A73 /* OpenCV */,
 				CAB11FAD200EF72600354701 /* CoreMLHelpers */,
 			);
 			path = Vendors;
@@ -212,6 +216,7 @@
 		CAF52F6A1FBAA83F006395B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA269A1C200F487200704A73 /* AVFoundation.framework */,
 				627EB96B33E0B834AB2CD203 /* Pods_SwiftOpenPose.framework */,
 			);
 			name = Frameworks;
@@ -284,13 +289,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CAB11FA4200EF5D800354701 /* IteratorTools.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = IteratorTools.framework;
-			remoteRef = CAB11FA3200EF5D800354701 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		CAB11FA6200EF5D800354701 /* opencv2.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -357,13 +355,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftOpenPose/Pods-SwiftOpenPose-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IteratorTools/IteratorTools.framework",
 				"${BUILT_PRODUCTS_DIR}/OpenCV/opencv2.framework",
 				"${BUILT_PRODUCTS_DIR}/Upsurge/Upsurge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IteratorTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Upsurge.framework",
 			);
@@ -398,6 +394,7 @@
 				CAB3E5191FBAA44A00ECCD30 /* ViewController.swift in Sources */,
 				CAB11F9B200EF4E500354701 /* MobileOpenPose.mlmodel in Sources */,
 				CAB11F8D200EF40400354701 /* UIImage+CVPixelBuffer.swift in Sources */,
+				CA269A22200F4B1D00704A73 /* ios_conversions.mm in Sources */,
 				CA15329D2008694E00798781 /* Estimator.swift in Sources */,
 				CAB3E55F1FBAA5A500ECCD30 /* Common.swift in Sources */,
 				CAB3E5171FBAA44A00ECCD30 /* AppDelegate.swift in Sources */,

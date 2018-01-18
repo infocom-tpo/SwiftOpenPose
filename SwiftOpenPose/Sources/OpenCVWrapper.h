@@ -17,4 +17,11 @@
              threshold:(double)threshold
 ;
 
+
+-(UIImage*) renderKeyPoint:(UIImage *) image
+              keypoint:(int*) keypoint
+         keypoint_size:(int) keypoint_size
+                   pos:(CGPoint*) pos
+;
+
 @end

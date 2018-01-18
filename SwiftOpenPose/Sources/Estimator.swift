@@ -1,12 +1,12 @@
 import Upsurge
-import IteratorTools
+//import IteratorTools
 
 class Human {
     
     var pairs : [Connection]
     var bodyParts : [Int: BodyPart]
     var uidxList: Set<String>
-    var name = ""
+//    var name = ""
     
     init(_ pairs: [Connection]) {
         
@@ -17,7 +17,7 @@ class Human {
         for pair in pairs {
             self.addPair(pair)
         }
-        self.name = (self.bodyParts.map{ $0.value.name }).joined(separator:" ")
+//        self.name = (self.bodyParts.map{ $0.value.name }).joined(separator:" ")
     }
     func _getUidx(_ partIdx: Int,_ idx: Int) -> String {
         return String(format: "%d-%d", partIdx, idx)
@@ -63,7 +63,7 @@ class BodyPart {
     var x: CGFloat
     var y: CGFloat
     var score: Double
-    var name: String
+//    var name: String
     
     init(_ uidx: String,_ partIdx: Int,_ x: CGFloat,_ y: CGFloat,_ score: Double){
         self.uidx = uidx
@@ -71,7 +71,7 @@ class BodyPart {
         self.x = x
         self.y = y
         self.score = score
-        self.name = String(format: "BodyPart:%d-(%.2f, %.2f) score=%.2f" , self.partIdx, self.x, self.y, self.score)
+//        self.name = String(format: "BodyPart:%d-(%.2f, %.2f) score=%.2f" , self.partIdx, self.x, self.y, self.score)
     }
 }
 
@@ -182,24 +182,23 @@ class PoseEstimator {
         let startTime = CFAbsoluteTimeGetCurrent()
         
         while true {
-            var mergeItems : (Human,Human)!
-            for idx in humans.combinations(length: 2, repeatingElements: false){
-                let k1 = idx[0]
-                let k2 = idx[1]
-                if k1.name == k2.name {
+            var items: (Int,Human,Human)!
+            for x in combinations([[Int](0..<humans.count), [Int](1..<humans.count)]){
+                if x[0] == x[1] {
                     continue
                 }
+                let k1 = humans[x[0]]
+                let k2 = humans[x[1]]
+                
                 if k1.isConnected(k2){
-                    mergeItems = (k1,k2)
+                    items = (x[1],k1,k2)
                     break
                 }
             }
             
-            if mergeItems != nil {
-                mergeItems.0.merge(mergeItems.1)
-                if let i = humans.index(where: { $0.name == mergeItems.1.name }) {
-                    humans.remove(at: i)
-                }
+            if items != nil {
+                items.1.merge(items.2)
+                humans.remove(at: items.0)
             } else {
                 break
             }
@@ -216,6 +215,37 @@ class PoseEstimator {
         
         return humans
     }
+    
+    func combinations<T>(_ arr: [[T]]) -> [[T]] {
+        return arr.reduce([[]]) {
+            var x = [[T]]()
+            for elem1 in $0 {
+                for elem2 in $1 {
+                    x.append(elem1 + [elem2])
+                }
+            }
+            return x
+        }
+    }
+    
+    // Cannot convert return expression of type '[(Int, Int)].Type' to return type '[(Int, Int)]'
+//    func combinations<T>(_ arr: [[T]]) -> [(Int,Int)] {
+//        return arr.reduce([(0,0)]) {
+//            var x = [(Int,Int)]()
+//            for elem1 in $0 {
+//                for elem2 in $1 {
+//                    print(elem1)
+//                    print(elem2)
+//                    print([elem2])
+//                    // Contextual type '(Int, Int)' cannot be used with array literal
+////                    x.append((elem2))
+////                    x.append(elem1 + [elem2])
+////                    x.append(elem1 + [elem2])
+//                }
+//            }
+//            return x
+//        }
+//    }
     
     func nonMaxSuppression(_ data: inout [Double],
                            dataRows: Int32,

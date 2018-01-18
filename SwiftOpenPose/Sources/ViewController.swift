@@ -21,7 +21,6 @@ class ViewController: UIViewController {
 //        }
         
         let fname = "hadou.jpg"
-//        let fname = "lifting"
 //        let fname = "person1.jpg"
         if let image = UIImage(named: fname){
             print(measure(runCoreML(image)).duration)
@@ -36,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     func runJsonFile(_ image: UIImage) {
-        imageView.image = image
+//        imageView.image = image
         
         let url = Bundle.main.url(forResource: "hadou", withExtension: "bin")!
         let text2 = try? String(contentsOf: url, encoding: .utf8)
@@ -50,7 +49,7 @@ class ViewController: UIViewController {
                 m.append(Double(array[i]))
             }
             
-            drewLine(m)
+            drewLine(m,image)
         }
     }
     
@@ -66,6 +65,7 @@ class ViewController: UIViewController {
                 
                 // view
                 imageView.image = UIImage(pixelBuffer: pixelBuffer)
+//                print(imageView)
                 
 //                let pred = prediction.MConv_Stage7_concat
                 let pred = prediction.net_output
@@ -77,24 +77,24 @@ class ViewController: UIViewController {
                 let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
                 let mm = Array(doubleBuffer)
 //                print(mm)
-                drewLine(mm)
+                drewLine(mm,image)
             }
         }
     }
     
-    func drewLine(_ mm: Array<Double>){
+    func drewLine(_ mm: Array<Double>,_ image: UIImage){
         
         let com = PoseEstimator(ImageWidth,ImageHeight)
         
-        let h = imageView.image?.size.height
-        let imageH = Int(h!)
-        let w = imageView.image?.size.width
-        let imageW = Int(w!)
+//        let imageH = imageView.bounds.height
+//        let imageW = imageView.bounds.width
         
         let res = measure(com.estimate(mm))
         let humans = res.result;
         print("estimate \(res.duration)")
         
+        var keypoint = [Int32]()
+        var pos = [CGPoint]()
         for human in humans {
             var centers = [Int: CGPoint]()
             for i in 0...CocoPart.Background.rawValue {
@@ -102,17 +102,25 @@ class ViewController: UIViewController {
                     continue
                 }
                 let bodyPart = human.bodyParts[i]!
-                centers[i] = CGPoint(x: Int(bodyPart.x * CGFloat(imageW) + 0.5), y: Int(bodyPart.y * CGFloat(imageH) + 0.5))
+                centers[i] = CGPoint(x: bodyPart.x, y: bodyPart.y)
+//                centers[i] = CGPoint(x: Int(bodyPart.x * CGFloat(imageW) + 0.5), y: Int(bodyPart.y * CGFloat(imageH) + 0.5))
             }
+
             for (pairOrder, (pair1,pair2)) in CocoPairsRender.enumerated() {
+                
                 if human.bodyParts.keys.index(of: pair1) == nil || human.bodyParts.keys.index(of: pair2) == nil {
                     continue
                 }
                 if centers.index(forKey: pair1) != nil && centers.index(forKey: pair2) != nil{
-                    addLine(fromPoint: centers[pair1]!, toPoint: centers[pair2]!, color: CocoColors[pairOrder])
+                    keypoint.append(Int32(pairOrder))
+                    pos.append(centers[pair1]!)
+                    pos.append(centers[pair2]!)
+//                    addLine(fromPoint: centers[pair1]!, toPoint: centers[pair2]!, color: CocoColors[pairOrder])
                 }
             }
         }
+        let opencv = OpenCVWrapper()
+        imageView.image = opencv.renderKeyPoint(image, keypoint: &keypoint, keypoint_size: Int32(keypoint.count), pos: &pos)
     }
     
     func addLine(fromPoint start: CGPoint, toPoint end:CGPoint, color: UIColor) {
