@@ -175,6 +175,9 @@ class PoseEstimator {
         }
         
         var humans = pairsByConn.map{ Human([$0]) }
+        if humans.count == 0 {
+            return humans
+        }
         
         let timeElapsed3 = CFAbsoluteTimeGetCurrent() - startTime3
         print("others elapsed for \(timeElapsed3) seconds")
