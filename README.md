@@ -37,7 +37,11 @@ There are two learning models available for this project.
 ## Installation
 
 ```
+$ git clone https://github.com/infocom-tpo/SwiftOpenPose.git
+$ cd SwiftOpenPose
 $ pod install
+$ curl -o SwiftOpenPose/Resources/MobileOpenPose.mlmodel \
+https://s3-ap-northeast-1.amazonaws.com/swiftopenpose/MobileOpenPose.mlmodel
 ```
 
 ## Examples

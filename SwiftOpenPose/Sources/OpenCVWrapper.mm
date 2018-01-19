@@ -27,6 +27,8 @@ using namespace std;
 255.f,   0.f,   170.f, \
 255.f,   0.f,    85.f
 
+#define PI 3.14159265
+
 @implementation OpenCVWrapper
 
 -(void) matrixMin: (double *) data
@@ -81,8 +83,8 @@ using namespace std;
     cv::Mat bg2;
     m2.copyTo(bg2,m2 == bg);
     
-//    cout << "bg = "<< endl << " "  << bg  << endl << endl;
-//    cout << "bg2 = "<< endl << " "  << bg2  << endl << endl;
+    //    cout << "bg = "<< endl << " "  << bg  << endl << endl;
+    //    cout << "bg2 = "<< endl << " "  << bg2  << endl << endl;
     
     size_t size2 = data_size*sizeof(double);
     std::memcpy(&data[0],bg2.data,size2);
@@ -95,12 +97,11 @@ using namespace std;
     kernel.release();
     
 }
-#define PI 3.14159265
 
--(UIImage*) renderKeyPoint:(UIImage *) image
-              keypoint:(int*) keypoint
-         keypoint_size:(int) keypoint_size
-                   pos:(CGPoint*) pos
+-(UIImage*) renderKeyPoint:(CGRect) bounds
+                  keypoint:(int*) keypoint
+             keypoint_size:(int) keypoint_size
+                       pos:(CGPoint*) pos
 {
     
     std::vector<int> key(&keypoint[0], keypoint + keypoint_size);
@@ -108,22 +109,14 @@ using namespace std;
     
     auto colors = std::vector<float>{COCO_COLORS};
     
-    UIImage* correctImage = image;
-    const auto width = correctImage.size.width;
-    const auto height = correctImage.size.height;
+    const auto exp = 4;
+    const auto width = bounds.size.width * exp;
+    const auto height = bounds.size.height * exp;
     
-    UIGraphicsBeginImageContext(correctImage.size);
-    [correctImage drawInRect:CGRectMake(0, 0, width, height)];
-    correctImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    cv::Mat mat(width,height,CV_8UC4);
+    mat = cv::Scalar(0);
     
-//    cout << correctImage.size.width << "x" << correctImage.size.height << endl;
-    // UIImage -> cv::Mat
-    cv::Mat mat;
-    UIImageToMat(correctImage, mat);
-    
-    int stickwidth = 10;
-    cv::Mat mat2;
+    int stickwidth = int(bounds.size.width * exp / 130);
     std::vector<cv::Point> polygon;
     
     for(int i = 0; i < keypoint_size; i++)
@@ -136,45 +129,42 @@ using namespace std;
             colors[(colorIndex+2) % numberColors],255};
         
         CGPoint p1 = position[i*2];
-        p1.x = p1.x * width + 0.5;
-        p1.y = p1.y * height + 0.5;
+        p1.x *= width + 0.5;
+        p1.y *= height + 0.5;
         
         CGPoint p2 = position[i*2+1];
-        p2.x = p2.x * width + 0.5;
-        p2.y = p2.y * height + 0.5;
+        p2.x *= width + 0.5;
+        p2.y *= height + 0.5;
         
         cv::Point point = cv::Point(int(p1.x), int(p1.y));
-        cv::circle(mat,point,12,color,-1);
+        cv::circle(mat,point,stickwidth,color,-1);
         
         point = cv::Point(int(p2.x), int(p2.y));
-        cv::circle(mat,point,12,color,-1);
+        cv::circle(mat,point,stickwidth,color,-1);
         
         auto length = pow( pow((p1.x - p2.x), 2) + pow((p1.y - p2.y), 2) ,0.5);
         auto angle = atan2(p1.y - p2.y, p1.x - p2.x) * 180.0 / PI;
         
-        CGFloat mX = (p1.x + p2.x) / 2.0;
-        CGFloat mY = (p1.y + p2.y) / 2.0;
-        cv::Point center = cv::Point(int(mX), int(mY));
-        cv::ellipse2Poly(center, cv::Size(int(length / 2), stickwidth), int(angle), 0 , 360 , 1, polygon);
+        cv::Point center = cv::Point(int((p1.x + p2.x) / 2.0),
+                                     int((p1.y + p2.y) / 2.0));
+        cv::ellipse2Poly(center,
+                         cv::Size(int(length / 2), stickwidth),
+                         int(angle), 0 , 360 , 1, polygon);
+        cv::fillConvexPoly(mat, polygon, color);
         
-        mat.copyTo(mat2);
-        cv::fillConvexPoly(mat2, polygon, color);
-        cv::addWeighted(mat, 0.4, mat2, 0.6, 0, mat);
-        
-//        cout << color << endl;
-//        p1 = position[i*2];
-//        p2 = position[i*2+1];
-//        cv::line(mat,
-//                 cv::Point(int(p1.x * width + 0.5), int(p1.y * height + 0.5)),
-//                 cv::Point(int(p2.x * width + 0.5), int(p2.y * height + 0.5)),
-//                 color,5,CV_8UC4);
+        //        cout << color << endl;
+        //        p1 = position[i*2];
+        //        p2 = position[i*2+1];
+        //        cv::line(mat,
+        //                 cv::Point(int(p1.x * width + 0.5), int(p1.y * height + 0.5)),
+        //                 cv::Point(int(p2.x * width + 0.5), int(p2.y * height + 0.5)),
+        //                 color,5,CV_8UC4);
     }
     
     UIImage *preview = MatToUIImage(mat);
     vector<cv::Point>().swap(polygon);
     vector<int>().swap(key);
     vector<CGPoint>().swap(position);
-    mat2.release();
     mat.release();
     
     return preview;

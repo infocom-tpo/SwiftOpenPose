@@ -5,7 +5,7 @@ import Upsurge
 
 class ViewController: UIViewController {
     
-//    let model = coco_pose_368()
+    //    let model = coco_pose_368()
     let model = MobileOpenPose()
     let ImageWidth = 368
     let ImageHeight = 368
@@ -16,12 +16,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         print("========")
-//        if let image = UIImage(named: "hadou.jpg"){
-//            print(measure(runJsonFile(image)).duration)
-//        }
+        //        if let image = UIImage(named: "hadou.jpg"){
+        //            print(measure(runJsonFile(image)).duration)
+        //        }
         
         let fname = "hadou.jpg"
-//        let fname = "person1.jpg"
+        //        let fname = "person1.jpg"
         if let image = UIImage(named: fname){
             print(measure(runCoreML(image)).duration)
         }
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     func runJsonFile(_ image: UIImage) {
-//        imageView.image = image
+        //        imageView.image = image
         
         let url = Bundle.main.url(forResource: "hadou", withExtension: "bin")!
         let text2 = try? String(contentsOf: url, encoding: .utf8)
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                 m.append(Double(array[i]))
             }
             
-            drewLine(m,image)
+            drewLine(m)
         }
     }
     
@@ -65,29 +65,26 @@ class ViewController: UIViewController {
                 
                 // view
                 imageView.image = UIImage(pixelBuffer: pixelBuffer)
-//                print(imageView)
+                //                print(imageView)
                 
-//                let pred = prediction.MConv_Stage7_concat
+                //                let pred = prediction.MConv_Stage7_concat
                 let pred = prediction.net_output
                 let length = pred.count
-//                print(length)
+                //                print(length)
                 print(pred)
                 
                 let doublePtr =  pred.dataPointer.bindMemory(to: Double.self, capacity: length)
                 let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
                 let mm = Array(doubleBuffer)
-//                print(mm)
-                drewLine(mm,image)
+                //                print(mm)
+                drewLine(mm)
             }
         }
     }
     
-    func drewLine(_ mm: Array<Double>,_ image: UIImage){
+    func drewLine(_ mm: Array<Double>){
         
         let com = PoseEstimator(ImageWidth,ImageHeight)
-        
-//        let imageH = imageView.bounds.height
-//        let imageW = imageView.bounds.width
         
         let res = measure(com.estimate(mm))
         let humans = res.result;
@@ -103,9 +100,9 @@ class ViewController: UIViewController {
                 }
                 let bodyPart = human.bodyParts[i]!
                 centers[i] = CGPoint(x: bodyPart.x, y: bodyPart.y)
-//                centers[i] = CGPoint(x: Int(bodyPart.x * CGFloat(imageW) + 0.5), y: Int(bodyPart.y * CGFloat(imageH) + 0.5))
+                //                centers[i] = CGPoint(x: Int(bodyPart.x * CGFloat(imageW) + 0.5), y: Int(bodyPart.y * CGFloat(imageH) + 0.5))
             }
-
+            
             for (pairOrder, (pair1,pair2)) in CocoPairsRender.enumerated() {
                 
                 if human.bodyParts.keys.index(of: pair1) == nil || human.bodyParts.keys.index(of: pair2) == nil {
@@ -115,12 +112,20 @@ class ViewController: UIViewController {
                     keypoint.append(Int32(pairOrder))
                     pos.append(centers[pair1]!)
                     pos.append(centers[pair2]!)
-//                    addLine(fromPoint: centers[pair1]!, toPoint: centers[pair2]!, color: CocoColors[pairOrder])
+                    //                    addLine(fromPoint: centers[pair1]!, toPoint: centers[pair2]!, color: CocoColors[pairOrder])
                 }
             }
         }
         let opencv = OpenCVWrapper()
-        imageView.image = opencv.renderKeyPoint(image, keypoint: &keypoint, keypoint_size: Int32(keypoint.count), pos: &pos)
+        let layer = CALayer()
+        let uiImage = opencv.renderKeyPoint(imageView.bounds, keypoint: &keypoint, keypoint_size: Int32(keypoint.count), pos: &pos)
+        
+        layer.frame = imageView.bounds
+        layer.contents = uiImage?.cgImage
+        layer.opacity = 0.6
+        layer.masksToBounds = true
+        self.view.layer.addSublayer(layer)
+        
     }
     
     func addLine(fromPoint start: CGPoint, toPoint end:CGPoint, color: UIColor) {
@@ -140,3 +145,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+

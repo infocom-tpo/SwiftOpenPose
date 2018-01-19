@@ -1,3 +1,5 @@
+# Opencv lightweight version 
+
 ## Package
 ```
 $ git clone https://github.com/opencv/opencv.git
@@ -32,7 +34,7 @@ $ python platforms/ios/build_framework.py ios \
 --without cudaoptflow --without cudastereo --without cudawarping --without cudev \
 --without highgui --without viz --without superres --without photo \
 --without calib3d --without shape --without stitching \
---without dnn --without imgcodecs --without aruco \
+--without dnn --without aruco \
 --without bgsegm --without bioinspired --without ccalib \
 --without cnn_3dobj --without cvv --without datasets \
 --without dnn_modern --without dpm --without face \
@@ -45,7 +47,11 @@ $ python platforms/ios/build_framework.py ios \
 
 ## Result
 ```
-$ cat opencv_modules.hpp
+$ cat ios/build/build-arm64-iphoneos/opencv2/opencv_modules.hpp
 #define HAVE_OPENCV_CORE
+#define HAVE_OPENCV_IMGCODECS
 #define HAVE_OPENCV_IMGPROC
 ```
+## Install
+
+install to ios/opencv2.framework
