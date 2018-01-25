@@ -1,6 +1,6 @@
 import UIKit
 import CoreML
-//import CoreMLHelpers
+import Vision
 import Upsurge
 
 class ViewController: UIViewController {
@@ -49,40 +49,45 @@ class ViewController: UIViewController {
                 m.append(Double(array[i]))
             }
             
-            drewLine(m)
+            drawLine(m)
         }
+    }
+    
+    lazy var classificationRequest: [VNRequest] = {
+        do {
+            let model = try VNCoreMLModel(for: self.model.model)
+            let classificationRequest = VNCoreMLRequest(model: model, completionHandler: self.handleClassification)
+            return [ classificationRequest ]
+        } catch {
+            fatalError("Can't load Vision ML model: \(error)")
+        }
+    }()
+    
+    func handleClassification(request: VNRequest, error: Error?) {
+        
+        guard let observations = request.results as? [VNCoreMLFeatureValueObservation] else { fatalError() }
+        let mlarray = observations[0].featureValue.multiArrayValue!
+        let length = mlarray.count
+        let doublePtr =  mlarray.dataPointer.bindMemory(to: Double.self, capacity: length)
+        let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
+        let mm = Array(doubleBuffer)
+        
+        drawLine(mm)
     }
     
     func runCoreML(_ image: UIImage) {
+        imageView.image = image
         
-        if let pixelBuffer = image.pixelBuffer(width: ImageWidth, height: ImageHeight) {
-            
-            let startTime2 = CFAbsoluteTimeGetCurrent()
-            if let prediction = try? model.prediction(image: pixelBuffer) {
-                
-                let timeElapsed2 = CFAbsoluteTimeGetCurrent() - startTime2
-                print("coreml elapsed for \(timeElapsed2) seconds")
-                
-                // view
-                imageView.image = UIImage(pixelBuffer: pixelBuffer)
-                //                print(imageView)
-                
-                //                let pred = prediction.MConv_Stage7_concat
-                let pred = prediction.net_output
-                let length = pred.count
-                //                print(length)
-                print(pred)
-                
-                let doublePtr =  pred.dataPointer.bindMemory(to: Double.self, capacity: length)
-                let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
-                let mm = Array(doubleBuffer)
-                //                print(mm)
-                drewLine(mm)
-            }
+        let img = image.resize(to: CGSize(width: ImageWidth,height: ImageHeight)).cgImage!
+        let classifierRequestHandler = VNImageRequestHandler(cgImage: img, options: [:])
+        do {
+            try classifierRequestHandler.perform(self.classificationRequest)
+        } catch {
+            print(error)
         }
     }
     
-    func drewLine(_ mm: Array<Double>){
+    func drawLine(_ mm: Array<Double>){
         
         let com = PoseEstimator(ImageWidth,ImageHeight)
         
@@ -143,6 +148,17 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension UIImage {
+    func resize(to newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newSize.width, height: newSize.height), true, 1.0)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return resizedImage
     }
 }
 

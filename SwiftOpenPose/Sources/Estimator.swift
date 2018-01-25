@@ -1,5 +1,4 @@
 import Upsurge
-//import IteratorTools
 
 class Human {
     
@@ -230,25 +229,6 @@ class PoseEstimator {
             return x
         }
     }
-    
-    // Cannot convert return expression of type '[(Int, Int)].Type' to return type '[(Int, Int)]'
-//    func combinations<T>(_ arr: [[T]]) -> [(Int,Int)] {
-//        return arr.reduce([(0,0)]) {
-//            var x = [(Int,Int)]()
-//            for elem1 in $0 {
-//                for elem2 in $1 {
-//                    print(elem1)
-//                    print(elem2)
-//                    print([elem2])
-//                    // Contextual type '(Int, Int)' cannot be used with array literal
-////                    x.append((elem2))
-////                    x.append(elem1 + [elem2])
-////                    x.append(elem1 + [elem2])
-//                }
-//            }
-//            return x
-//        }
-//    }
     
     func nonMaxSuppression(_ data: inout [Double],
                            dataRows: Int32,
