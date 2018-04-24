@@ -53,6 +53,14 @@ You can shoot or select a video to detect bones.
 ![before1](examples/BoneDetecter/images/before1.gif)
 ![after1](examples/BoneDetecter/images/after1.gif)
 
+## iTunes Store App
+
+<img src="images/iTunesArtwork.png" width="100" height="100">  
+
+[Stickman Animator](https://itunes.apple.com/jp/app/stickman-animator/id1337589939?mt=8)
+
+Stickman Animator is an app to make animations of stickman from videos of people.
+
 ## Blogs
 
 * Explanation by Japanese
