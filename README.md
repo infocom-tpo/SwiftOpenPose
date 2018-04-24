@@ -30,6 +30,11 @@ There are two learning models available for this project.
 ## Dependencies Library
 
 * [UpSurge](https://github.com/aleph7/Upsurge)
+  * Editing [Podfile](Podfile)
+```
+pod 'Upsurge', '0.10.2' # Xcode 9.3
+pod 'Upsurge', '0.10.0' # Xcode 9.0 - 9.2 
+```
 * [OpenCV](https://opencv.org/releases.html)
   * Download of iOS Pack
   * [Opencv lightweight version](doc/openpose_minimum.md)
