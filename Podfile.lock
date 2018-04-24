@@ -1,6 +1,6 @@
 PODS:
   - OpenCV (3.3.1)
-  - Upsurge (0.10.0)
+  - Upsurge (0.10.2)
 
 DEPENDENCIES:
   - OpenCV (~> 3.3.1)
@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   OpenCV: d81447860f038d60723084aa02ecc963f95c55fa
-  Upsurge: 07095027bbabc0d5c15b61616421eb87018852fa
+  Upsurge: 5866beadc3da27f91c5df4ac795deb3f3238d678
 
 PODFILE CHECKSUM: 7c550ffd3bc2354144f1f8cac4432b9f7a25a7a0
 
