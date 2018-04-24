@@ -256,25 +256,16 @@ class PoseEstimator {
         }
         let vx = dx / normVec
         let vy = dy / normVec
-        var xs : [Double]
         
-        if x1 == x2 {
-            xs = Array<Double>(repeating: Double(x1) , count: __numInter)
-        } else {
-            xs = stride(from: Double(x1), to: Double(x2), by: Double(dx / __numInterF)).map {$0}
-        }
-        var ys : [Double]
-        if y1 == y2 {
-            ys = Array<Double>(repeating: Double(y1) , count: __numInter)
-        } else {
-            ys = stride(from: Double(y1), to: Double(y2), by: Double(dy / __numInterF)).map {$0}
-        }
-        let xs2 = xs.map{ Int($0+0.5) }
-        let ys2 = ys.map{ Int($0+0.5) }
+        let xs = (x1 == x2) ? Array(repeating: x1 , count: __numInter)
+            : stride(from: Double(x1), to: Double(x2), by: Double(dx / __numInterF)).map {Int($0+0.5)}
         
-        var pafXs : [Double] = Array(repeating: 0.0 , count: __numInter)
-        var pafYs : [Double] = Array(repeating: 0.0 , count: __numInter)
-        for (idx, (mx, my)) in zip(xs2, ys2).enumerated(){
+        let ys = (y1 == y2) ? Array(repeating: y1 , count: __numInter)
+            : stride(from: Double(y1), to: Double(y2), by: Double(dy / __numInterF)).map {Int($0+0.5)}
+        
+        var pafXs = Array<Double>(repeating: 0.0 , count: xs.count)
+        var pafYs = Array<Double>(repeating: 0.0 , count: ys.count)
+        for (idx, (mx, my)) in zip(xs, ys).enumerated(){
             pafXs[idx] = pafMatX[my*heatRows+mx]
             pafYs[idx] = pafMatY[my*heatRows+mx]
         }
