@@ -236,10 +236,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if !captureSession.isRunning {
-            captureSession.startRunning()
-        }
-        
         guard let url: URL = selectedFileURL else {
             return
         }
