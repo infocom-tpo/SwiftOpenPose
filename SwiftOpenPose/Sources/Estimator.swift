@@ -150,27 +150,23 @@ class PoseEstimator {
         _nmsThreshold = min(_nmsThreshold, 0.3)
         print(_nmsThreshold) // 0.0806388792154168
         
-        var coords = [[(Int,Int)]]()
-        for i in 0..<heatMat.rows-1 {
+        let coords : [[(Int,Int)]] = (0..<heatMat.rows-1).map { i in
             var nms = Array<Double>(heatMat.row(i))
             nonMaxSuppression(&nms, dataRows: Int32(heatColumns),
                               maskSize: 5, threshold: _nmsThreshold)
-            let c = nms.enumerated().filter{ $0.1 > _nmsThreshold }.map { x in
-                return ( x.0 / heatRows , x.0 % heatRows )
+            return nms.enumerated().filter{ $0.1 > _nmsThreshold }.map { x in
+                ( x.0 / heatRows , x.0 % heatRows )
             }
-            coords.append(c)
         }
         
-        var pairsByConn = [Connection]()
-        for ((partIdx1, partIdx2), (pafXIdx, pafYIdx)) in zip(CocoPairs, CocoPairsNetwork){
-            let pairs = scorePairs(
-                partIdx1, partIdx2,
-                coords[partIdx1], coords[partIdx2],
-                Array<Double>(pafMat.row(pafXIdx)), Array<Double>(pafMat.row(pafYIdx)),
+        let pairsByConn = zip(CocoPairs, CocoPairsNetwork).reduce(into: [Connection]()) { 
+            $0.append(contentsOf: scorePairs(
+                $1.0.0, $1.0.1,
+                coords[$1.0.0], coords[$1.0.1],
+                Array<Double>(pafMat.row($1.1.0)), Array<Double>(pafMat.row($1.1.1)),
                 &data,
                 rescale: (1.0 / CGFloat(heatColumns), 1.0 / CGFloat(heatRows))
-            )
-            pairsByConn.append(contentsOf: pairs)
+            ))
         }
         
         var humans = pairsByConn.map{ Human([$0]) }
