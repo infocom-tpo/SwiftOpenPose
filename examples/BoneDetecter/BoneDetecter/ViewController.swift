@@ -62,17 +62,12 @@ class ViewController: UIViewController {
     func handleClassification(request: VNRequest, error: Error?) {
         guard let observations = request.results as? [VNCoreMLFeatureValueObservation] else { fatalError() }
         let mlarray = observations[0].featureValue.multiArrayValue!
-        
-        DispatchQueue.global().async {
-            let length = mlarray.count
-            let doublePtr =  mlarray.dataPointer.bindMemory(to: Double.self, capacity: length)
-            let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
-            let mm = Array(doubleBuffer)
-        
-            DispatchQueue.main.sync {
-                self.drawLine(mm)
-            }
-        }
+        let length = mlarray.count
+        let doublePtr =  mlarray.dataPointer.bindMemory(to: Double.self, capacity: length)
+        let doubleBuffer = UnsafeBufferPointer(start: doublePtr, count: length)
+        let mm = Array(doubleBuffer)
+    
+        drawLine(mm)
     }
     
     func drawLine(_ mm: Array<Double>) {
